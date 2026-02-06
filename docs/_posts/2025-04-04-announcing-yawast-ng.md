@@ -9,7 +9,7 @@ YAWAST is back! Or more specifically, yawast-ng has arrived. After a years-long 
 
 This project was created as a way to make penetration tests faster and more efficient, especially that first day of testing. Enabling testers to gain as much information as possible, as fast as possible. Why start at a walk, when you can go straight to a running start?
 
-With a large number of [checks performed](https://adcaudill.github.io/yawast-ng/checks/), yawast-ng provides both actionable findings and useful insights into the target and its security posture. This provides the most efficient start possible.
+With a large number of [checks performed](https://yawast.adamcaudill.com/checks/), yawast-ng provides both actionable findings and useful insights into the target and its security posture. This provides the most efficient start possible.
 
 ## Why the new name?
 

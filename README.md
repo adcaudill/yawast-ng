@@ -22,16 +22,16 @@ This project is a continuation of YAWAST, as yawast-ng, to continue the project 
 
 ### Documentation
 
-* [Checks Performed](https://adcaudill.github.io/yawast-ng/checks/)
-* [Installation](https://adcaudill.github.io/yawast-ng/installation/)
-* [Usage & Parameters](https://adcaudill.github.io/yawast-ng/usage/)
-* [Scanning TLS/SSL](https://adcaudill.github.io/yawast-ng/tls/)
-  * [OpenSSL & 3DES Compatibility](https://adcaudill.github.io/yawast-ng/openssl/)
-* [Sample Output](https://adcaudill.github.io/yawast-ng/sample/)
-* [Plugins](https://adcaudill.github.io/yawast-ng/plugins/)
-* [FAQ](https://adcaudill.github.io/yawast-ng/faq/)
+* [Checks Performed](https://yawast.adamcaudill.com/checks/)
+* [Installation](https://yawast.adamcaudill.com/installation/)
+* [Usage & Parameters](https://yawast.adamcaudill.com/usage/)
+* [Scanning TLS/SSL](https://yawast.adamcaudill.com/tls/)
+  * [OpenSSL & 3DES Compatibility](https://yawast.adamcaudill.com/openssl/)
+* [Sample Output](https://yawast.adamcaudill.com/sample/)
+* [Plugins](https://yawast.adamcaudill.com/plugins/)
+* [FAQ](https://yawast.adamcaudill.com/faq/)
 
-Please see [the project website](https://adcaudill.github.io/yawast-ng/) for full documentation.
+Please see [the project website](https://yawast.adamcaudill.com/) for full documentation.
 
 ### Usage
 
@@ -39,7 +39,7 @@ The most common usage scenario is as simple as:
 
 `yawast-ng scan <url1>`
 
-Detailed [usage information](https://adcaudill.github.io/yawast-ng/usage/) is available on the project web site.
+Detailed [usage information](https://yawast.adamcaudill.com/usage/) is available on the project web site.
 
 ### Contributing
 

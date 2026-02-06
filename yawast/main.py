@@ -124,7 +124,7 @@ def print_header():
     print("                                   The Next Generation")
     print()
     print(" Copyright (c) 2013 - 2026 Adam Caudill and Contributors")
-    print(" Support & Documentation: https://adcaudill.github.io/yawast-ng/")
+    print(" Support & Documentation: https://yawast.adamcaudill.com/")
     print()
     print(
         f" Python {''.join(sys.version.splitlines())} ({platform.python_implementation()})"
