@@ -35,7 +35,7 @@ jobs:
           git diff --cached --quiet || git commit -m 'chore: update download badge in README.md'
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: 'chore: update download badge in README.md'
           title: 'chore: update download badge in README.md'
