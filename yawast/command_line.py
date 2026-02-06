@@ -29,7 +29,7 @@ def build_parser():
 
     parser = argparse.ArgumentParser(prog="yawast")
     parser.description = "YAWAST ...where a pentest starts. A tool for web-based application security testing."
-    parser.epilog = "For more information, see https://adcaudill.github.io/yawast-ng/"
+    parser.epilog = "For more information, see https://yawast.adamcaudill.com/"
     parser.add_argument(
         "-v", "--version", action="version", version=f"{parser.prog} v{get_version()}"
     )

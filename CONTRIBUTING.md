@@ -55,7 +55,7 @@ Changes that require a new library be included may be rejected if the library do
 
 #### Documentation Updates
 
-All documentation is housed on the [project web site](https://adcaudill.github.io/yawast-ng/), which is hosted via Github Pages and stored in the `/docs` directory of the `main` branch. Corrections, improvements, and updates to the YAWAST documentation are very welcome.
+All documentation is housed on the [project web site](https://yawast.adamcaudill.com/), which is hosted via Github Pages and stored in the `/docs` directory of the `main` branch. Corrections, improvements, and updates to the YAWAST documentation are very welcome.
 
 #### Guest Blog Posts
 
