@@ -24,7 +24,7 @@ As a Python package: `pip3 install yawast-ng` (yawast-ng Python 3.9+)
 
 #### Docker
 
-`docker pull adcaudill/yawast-ng`
+`docker pull adamcaudill/yawast-ng`
 
 It's strongly recommended that you review the [installation](https://adcaudill.github.io/yawast-ng/installation/) page to ensure you have the proper dependencies.
 

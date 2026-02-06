@@ -26,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: adcaudill/yawast-ng:latest
+          tags: adamcaudill/yawast-ng:latest

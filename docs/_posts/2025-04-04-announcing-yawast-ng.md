@@ -15,7 +15,7 @@ With a large number of [checks performed](https://adcaudill.github.io/yawast-ng/
 
  Details will be shared in the future, but yawast-ng will be moving to a more expansive set of goals than YAWAST had, and in the process, may introduce breaking changes compared to what YAWAST did; we don’t want to break things for those that  are still using YAWAST.
  
- As such, yawast-ng has a new name, including on [PyPi](https://pypi.org/project/yawast-ng/) and [Docker](https://hub.docker.com/r/adcaudill/yawast-ng).
+ As such, yawast-ng has a new name, including on [PyPi](https://pypi.org/project/yawast-ng/) and [Docker](https://hub.docker.com/r/adamcaudill/yawast-ng).
  
  Due to the importance of stable output, the one thing that we will commit to not introducing any breaking changes to the JSON output (via the `--output` parameter).
  

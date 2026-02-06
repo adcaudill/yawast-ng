@@ -67,9 +67,17 @@ def get_download_count_k():
     print(f"Legacy Docker pulls: {legacy_docker_pulls}")
     total += legacy_docker_pulls
 
+    # legacy NG Docker pulls (yawast-ng)
+    legacy_ng_docker_pulls = get_svg_count(
+        "https://img.shields.io/docker/pulls/adcaudill/yawast-ng",
+        parse_svg_count,
+    )
+    print(f"Yawast-ng Docker pulls: {legacy_ng_docker_pulls}")
+    total += legacy_ng_docker_pulls
+
     # current Docker pulls (yawast-ng)
     ng_docker_pulls = get_svg_count(
-        "https://img.shields.io/docker/pulls/adcaudill/yawast-ng",
+        "https://img.shields.io/docker/pulls/adamcaudill/yawast-ng",
         parse_svg_count,
     )
     print(f"Yawast-ng Docker pulls: {ng_docker_pulls}")
