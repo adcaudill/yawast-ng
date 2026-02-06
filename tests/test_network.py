@@ -253,7 +253,7 @@ class DummySession:
 def test_scan_with_ports(monkeypatch):
     from yawast.scanner.cli import network as cli_network
 
-    session = DummySession("numorian.com", "http://numorian.com", ports=True)
+    session = DummySession("example.com", "http://example.com", ports=True)
     called = {}
     monkeypatch.setattr(
         cli_network, "_check_open_ports", lambda d, u: called.setdefault("ports", True)
@@ -271,7 +271,7 @@ def test_scan_with_ports(monkeypatch):
 def test_scan_without_ports(monkeypatch):
     from yawast.scanner.cli import network as cli_network
 
-    session = DummySession("numorian.com", "http://numorian.com", ports=False)
+    session = DummySession("example.com", "http://example.com", ports=False)
     monkeypatch.setattr(
         cli_network.plugin_manager,
         "run_network_scans",
@@ -296,7 +296,7 @@ def test_check_open_ports_normal(monkeypatch):
     monkeypatch.setattr(
         cli_network.port_scan, "check_open_ports", lambda url, ip, file: ["open_port"]
     )
-    cli_network._check_open_ports("numorian.com", "http://numorian.com")
+    cli_network._check_open_ports("example.com", "http://example.com")
     assert called["display"]
 
 
@@ -315,7 +315,7 @@ def test_check_open_ports_exception(monkeypatch):
         "get_ips",
         lambda domain: (_ for _ in ()).throw(Exception("fail")),
     )
-    cli_network._check_open_ports("numorian.com", "http://numorian.com")
+    cli_network._check_open_ports("example.com", "http://example.com")
     assert hasattr(cli_network, "error_called")
 
 
@@ -684,7 +684,7 @@ def test_check_www_redirect_www_branches(monkeypatch):
         "http_head",
         lambda url, allow: mock.Mock(
             status_code=301,
-            headers={"location": "http://numorian.com"},
+            headers={"location": "http://example.com"},
             request=mock.Mock(method="HEAD"),
         ),
     )
@@ -697,19 +697,17 @@ def test_check_www_redirect_www_branches(monkeypatch):
         network.utils,
         "get_domain",
         lambda netloc: (
-            "www.numorian.com" if netloc == "www.numorian.com" else "numorian.com"
+            "www.example.com" if netloc == "www.example.com" else "example.com"
         ),
     )
-    assert (
-        network.check_www_redirect("http://www.numorian.com") == "http://numorian.com"
-    )
+    assert network.check_www_redirect("http://www.example.com") == "http://example.com"
     # domain does not start with www, location_domain does
     monkeypatch.setattr(
         network,
         "http_head",
         lambda url, allow: mock.Mock(
             status_code=301,
-            headers={"location": "http://www.numorian.com"},
+            headers={"location": "http://www.example.com"},
             request=mock.Mock(method="HEAD"),
         ),
     )
@@ -717,12 +715,10 @@ def test_check_www_redirect_www_branches(monkeypatch):
         network.utils,
         "get_domain",
         lambda netloc: (
-            "numorian.com" if netloc == "numorian.com" else "www.numorian.com"
+            "example.com" if netloc == "example.com" else "www.example.com"
         ),
     )
-    assert (
-        network.check_www_redirect("http://numorian.com") == "http://www.numorian.com"
-    )
+    assert network.check_www_redirect("http://example.com") == "http://www.example.com"
 
 
 def test_response_body_is_text_no_content_type(monkeypatch):

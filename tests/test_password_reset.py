@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Numorian, Inc. and Contributors.
+# Copyright (c) 2013 - 2026. See LICENSE and CONTRIBUTORS.md for details.
 # Unit tests for yawast/scanner/modules/http/applications/generic/password_reset.py
 from unittest import mock
 
@@ -51,7 +51,7 @@ def test_find_user_field_no_match():
 
 
 def test_fill_form_get_body(monkeypatch):
-    session = make_test_session("http://numorian.com")
+    session = make_test_session("http://example.com")
     driver = mock.Mock()
     element = mock.Mock()
     element.is_displayed.return_value = True
@@ -69,7 +69,7 @@ def test_fill_form_get_body(monkeypatch):
     element.submit.return_value = None
     driver.close.return_value = None
     res, img, delay = password_reset._fill_form_get_body(
-        session, "http://numorian.com", "user"
+        session, "http://example.com", "user"
     )
     assert res == "<html></html>"
     assert img == "imgdata"
@@ -77,7 +77,7 @@ def test_fill_form_get_body(monkeypatch):
 
 
 def test_check_resp_user_enum(monkeypatch):
-    session = make_test_session("http://numorian.com")
+    session = make_test_session("http://example.com")
     # Patch _fill_form_get_body to return different results for good/bad user
     monkeypatch.setattr(
         "yawast.scanner.modules.http.applications.generic.password_reset._fill_form_get_body",
@@ -93,7 +93,7 @@ def test_check_resp_user_enum(monkeypatch):
 
 
 def test_check_resp_user_enum_timing(monkeypatch):
-    session = make_test_session("http://numorian.com")
+    session = make_test_session("http://example.com")
     # Patch _fill_form_get_body to return same response but different timing
     monkeypatch.setattr(
         "yawast.scanner.modules.http.applications.generic.password_reset._fill_form_get_body",
@@ -107,7 +107,7 @@ def test_check_resp_user_enum_timing(monkeypatch):
 
 
 def test_check_resp_user_enum_exception(monkeypatch):
-    session = make_test_session("http://numorian.com")
+    session = make_test_session("http://example.com")
     # Patch _fill_form_get_body to raise
     monkeypatch.setattr(
         "yawast.scanner.modules.http.applications.generic.password_reset._fill_form_get_body",
@@ -119,7 +119,7 @@ def test_check_resp_user_enum_exception(monkeypatch):
 
 
 def test_get_driver_with_proxy(monkeypatch):
-    session = make_test_session("http://numorian.com")
+    session = make_test_session("http://example.com")
     session.args.proxy = "localhost:8080"
     # Patch all selenium and webdriver_manager classes used
     monkeypatch.setattr(
@@ -152,5 +152,5 @@ def test_get_driver_with_proxy(monkeypatch):
     logger.setLevel(logging.INFO)
     from yawast.scanner.selenium import get_selenium_driver
 
-    driver = get_selenium_driver(session, "http://numorian.com")
+    driver = get_selenium_driver(session, "http://example.com")
     assert hasattr(driver, "get")

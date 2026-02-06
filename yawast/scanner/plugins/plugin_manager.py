@@ -1,4 +1,4 @@
-#  Copyright (c) 2013 - 2025 Numorian, Inc. and Contributors.
+#  Copyright (c) 2013 - 2026. See LICENSE and CONTRIBUTORS.md for details.
 #  This file is part of yawast-ng which is released under the MIT license.
 #  See the LICENSE file for full license details.
 
@@ -167,6 +167,7 @@ def run_hook_injection_point_found(url: str, point: InjectionPoint, response: Re
             except Exception as e:
                 output.error(f"Failed to run plugin {plugin_name}: {e}")
                 continue
+
 
 def run_hook_scan_complete(session: Session):
     """

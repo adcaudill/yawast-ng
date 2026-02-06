@@ -9,7 +9,7 @@ YAWAST is back! Or more specifically, yawast-ng has arrived. After a years-long 
 
 This project was created as a way to make penetration tests faster and more efficient, especially that first day of testing. Enabling testers to gain as much information as possible, as fast as possible. Why start at a walk, when you can go straight to a running start?
 
-With a large number of [checks performed](https://numorian.github.io/yawast-ng/checks/), yawast-ng provides both actionable findings and useful insights into the target and its security posture. This provides the most efficient start possible.
+With a large number of [checks performed](https://adcaudill.github.io/yawast-ng/checks/), yawast-ng provides both actionable findings and useful insights into the target and its security posture. This provides the most efficient start possible.
 
 ## Why the new name?
 
@@ -21,7 +21,7 @@ With a large number of [checks performed](https://numorian.github.io/yawast-ng/c
  
 ## Why Now?
 
-[Numorian](https://numorian.com), a security and AI consulting company, has been generous enough to support the renewed development efforts, both to improve their own services and as a way of giving back to the community. Numorian and I both see the value of this project, both in the value it offers today, and the promise it holds for the future.
+Numorian, a security and AI consulting company, has been generous enough to support the renewed development efforts, both to improve their own services and as a way of giving back to the community. Numorian and I both see the value of this project, both in the value it offers today, and the promise it holds for the future.
  
 ## Available Now
  
@@ -29,4 +29,4 @@ With a large number of [checks performed](https://numorian.github.io/yawast-ng/c
  
 ## Questions & Support 
 
-If you have any questions, or run into any issues, please don’t hesitate to [open an issue](https://github.com/Numorian/yawast-ng/issues/new).
+If you have any questions, or run into any issues, please don’t hesitate to [open an issue](https://github.com/adcaudill/yawast-ng/issues/new).

@@ -1,4 +1,4 @@
-#  Copyright (c) 2013 - 2025 Numorian, Inc. and Contributors.
+#  Copyright (c) 2013 - 2026. See LICENSE and CONTRIBUTORS.md for details.
 #  This file is part of yawast-ng which is released under the MIT license.
 #  See the LICENSE file for full license details.
 
@@ -44,7 +44,7 @@ def get_latest_version(
 def _get_version_data() -> None:
     global _versions
     data: Union[Dict[str, Dict[str, Dict[str, str]]], None] = None
-    data_url = "https://raw.githubusercontent.com/Numorian/current_versions/main/current_versions.json"
+    data_url = "https://raw.githubusercontent.com/adcaudill/current_versions/main/current_versions.json"
 
     try:
         data, _ = network.http_json(data_url)

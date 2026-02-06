@@ -26,20 +26,20 @@ As a Python package: `pip3 install yawast-ng` (yawast-ng Python 3.9+)
 
 `docker pull adcaudill/yawast-ng`
 
-It's strongly recommended that you review the [installation](https://numorian.github.io/yawast-ng/installation/) page to ensure you have the proper dependencies.
+It's strongly recommended that you review the [installation](https://adcaudill.github.io/yawast-ng/installation/) page to ensure you have the proper dependencies.
 
 ## Documentation
 
 Details about yawast-ng and how to use it can be found below:
 
-* [Installation](https://numorian.github.io/yawast-ng/installation/)
-* [Usage & Parameters](https://numorian.github.io/yawast-ng/usage/)
-* [Scanning TLS/SSL](https://numorian.github.io/yawast-ng/tls/)
-  * [OpenSSL & 3DES Compatibility](https://numorian.github.io/yawast-ng/openssl/)
-* [Sample Output](https://numorian.github.io/yawast-ng/sample/)
-* [Plugins](https://numorian.github.io/yawast-ng/plugins/)
-* [FAQ](https://numorian.github.io/yawast-ng/faq/)
-* [Change Log](https://github.com/Numorian/yawast-ng/blob/master/CHANGELOG.md)
+* [Installation](https://adcaudill.github.io/yawast-ng/installation/)
+* [Usage & Parameters](https://adcaudill.github.io/yawast-ng/usage/)
+* [Scanning TLS/SSL](https://adcaudill.github.io/yawast-ng/tls/)
+  * [OpenSSL & 3DES Compatibility](https://adcaudill.github.io/yawast-ng/openssl/)
+* [Sample Output](https://adcaudill.github.io/yawast-ng/sample/)
+* [Plugins](https://adcaudill.github.io/yawast-ng/plugins/)
+* [FAQ](https://adcaudill.github.io/yawast-ng/faq/)
+* [Change Log](https://github.com/adcaudill/yawast-ng/blob/master/CHANGELOG.md)
 
 ## Recent Blog Posts
 

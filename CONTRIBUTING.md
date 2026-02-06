@@ -20,7 +20,7 @@ Here are some key points to keep in mind when it comes to contributing code. If 
 * The use of [pipenv](https://docs.pipenv.org/en/latest/) to build and maintain a clean environment is strongly recommended.
 * The core contributors use [PyCharm](https://www.jetbrains.com/pycharm/) as our IDE of choice; it's the best option we have found for working with this code.
 * Care should be taken to avoid violating the plugins abstraction layer - plugins should not directly interact with a UI of any type.
-* You should include a change to the [CONTRIBUTORS.md](https://github.com/Numorian/yawast-ng/blob/main/CONTRIBUTORS.md) file to add your name.
+* You should include a change to the [CONTRIBUTORS.md](https://github.com/adcaudill/yawast-ng/blob/main/CONTRIBUTORS.md) file to add your name.
 
 ### Building Windows Executable
 
@@ -55,7 +55,7 @@ Changes that require a new library be included may be rejected if the library do
 
 #### Documentation Updates
 
-All documentation is housed on the [project web site](https://numorian.github.io/yawast-ng/), which is hosted via Github Pages and stored in the `/docs` directory of the `main` branch. Corrections, improvements, and updates to the YAWAST documentation are very welcome.
+All documentation is housed on the [project web site](https://adcaudill.github.io/yawast-ng/), which is hosted via Github Pages and stored in the `/docs` directory of the `main` branch. Corrections, improvements, and updates to the YAWAST documentation are very welcome.
 
 #### Guest Blog Posts
 
@@ -70,7 +70,7 @@ It is not required of you to assign the copyright of your contributions; you ret
 All Python files (except those in the `yawast\external` directory) should include the following header:
 
 ```
-# Copyright (c) 2013 - 2025 Numorian, Inc. and Contributors.
+# Copyright (c) 2013 - 2026. See LICENSE and CONTRIBUTORS.md for details.
 # This file is part of yawast-ng which is released under the MIT license.
 # See the LICENSE file for full license details.
 ```

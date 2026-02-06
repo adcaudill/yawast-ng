@@ -1,8 +1,8 @@
 ## yawast-ng
-![unit-tests](https://github.com/Numorian/yawast-ng/workflows/unit-tests/badge.svg) [![codecov](https://codecov.io/github/Numorian/yawast-ng/branch/main/graph/badge.svg?token=LPEIB8NOE3)](https://codecov.io/github/Numorian/yawast-ng) [![PyPI version](https://img.shields.io/pypi/v/yawast-ng.svg)](https://pypi.org/project/yawast-ng/) [![Python version](https://img.shields.io/pypi/pyversions/yawast-ng.svg)](https://pypi.org/project/yawast-ng/) [![Docker Download](https://img.shields.io/badge/Docker-pull-blue)](https://hub.docker.com/r/adcaudill/yawast-ng) ![Download Count](https://img.shields.io/badge/downloads-135k%2B-blue)
+![unit-tests](https://github.com/adcaudill/yawast-ng/workflows/unit-tests/badge.svg) [![PyPI version](https://img.shields.io/pypi/v/yawast-ng.svg)](https://pypi.org/project/yawast-ng/) [![Python version](https://img.shields.io/pypi/pyversions/yawast-ng.svg)](https://pypi.org/project/yawast-ng/) [![Docker Download](https://img.shields.io/badge/Docker-pull-blue)](https://hub.docker.com/r/adcaudill/yawast-ng) ![Download Count](https://img.shields.io/badge/downloads-135k%2B-blue)
 
 
-![YAWAST](https://github.com/Numorian/yawast-ng/raw/main/yawast_logo_v1.svg?sanitize=true)
+![YAWAST](https://github.com/adcaudill/yawast-ng/raw/main/yawast_logo_v1.svg?sanitize=true)
 
 ### The YAWAST Antecedent Web Application Security Toolkit - _Next Generation_
 
@@ -22,16 +22,16 @@ This project is a continuation of YAWAST, as yawast-ng, to continue the project 
 
 ### Documentation
 
-* [Checks Performed](https://numorian.github.io/yawast-ng/checks/)
-* [Installation](https://numorian.github.io/yawast-ng/installation/)
-* [Usage & Parameters](https://numorian.github.io/yawast-ng/usage/)
-* [Scanning TLS/SSL](https://numorian.github.io/yawast-ng/tls/)
-  * [OpenSSL & 3DES Compatibility](https://numorian.github.io/yawast-ng/openssl/)
-* [Sample Output](https://numorian.github.io/yawast-ng/sample/)
-* [Plugins](https://numorian.github.io/yawast-ng/plugins/)
-* [FAQ](https://numorian.github.io/yawast-ng/faq/)
+* [Checks Performed](https://adcaudill.github.io/yawast-ng/checks/)
+* [Installation](https://adcaudill.github.io/yawast-ng/installation/)
+* [Usage & Parameters](https://adcaudill.github.io/yawast-ng/usage/)
+* [Scanning TLS/SSL](https://adcaudill.github.io/yawast-ng/tls/)
+  * [OpenSSL & 3DES Compatibility](https://adcaudill.github.io/yawast-ng/openssl/)
+* [Sample Output](https://adcaudill.github.io/yawast-ng/sample/)
+* [Plugins](https://adcaudill.github.io/yawast-ng/plugins/)
+* [FAQ](https://adcaudill.github.io/yawast-ng/faq/)
 
-Please see [the project website](https://numorian.github.io/yawast-ng/) for full documentation.
+Please see [the project website](https://adcaudill.github.io/yawast-ng/) for full documentation.
 
 ### Usage
 
@@ -39,17 +39,17 @@ The most common usage scenario is as simple as:
 
 `yawast-ng scan <url1>`
 
-Detailed [usage information](https://numorian.github.io/yawast-ng/usage/) is available on the project web site.
+Detailed [usage information](https://adcaudill.github.io/yawast-ng/usage/) is available on the project web site.
 
 ### Contributing
 
-1. Fork it (https://github.com/Numorian/yawast-ng/fork)
+1. Fork it (https://github.com/adcaudill/yawast-ng/fork)
 2. Create your feature branch (`git checkout -b my-new-feature origin/develop`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
-Issues that are labeled as [good first issue](https://github.com/Numorian/yawast-ng/labels/good%20first%20issue) are great starting points for new contributors. These are less complex issues that will help make you familiar with working on yawast-ng.
+Issues that are labeled as [good first issue](https://github.com/adcaudill/yawast-ng/labels/good%20first%20issue) are great starting points for new contributors. These are less complex issues that will help make you familiar with working on yawast-ng.
 
 Contributions, in the form of feature requests and pull requests are both welcome and encouraged. yawast-ng will only evolve if users are willing and able to give back, and work too make yawast-ng better for everyone.
 

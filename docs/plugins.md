@@ -71,7 +71,7 @@ yawast-ng will automatically discover and load your plugin the next time it runs
 
 ## Example: Sample Plugin
 
-See the [sample-plugin](https://github.com/Numorian/yawast-ng/tree/main/sample-plugin) directory for a complete, minimal example. This can be copied and modified to create your own plugins.
+See the [sample-plugin](https://github.com/adcaudill/yawast-ng/tree/main/sample-plugin) directory for a complete, minimal example. This can be copied and modified to create your own plugins.
 
 ## Tips
 

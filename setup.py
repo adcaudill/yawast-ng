@@ -1,4 +1,4 @@
-#  Copyright (c) 2013 - 2025 Numorian, Inc. and Contributors.
+#  Copyright (c) 2013 - 2026. See LICENSE and CONTRIBUTORS.md for details.
 #  This file is part of yawast-ng which is released under the MIT license.
 #  See the LICENSE file for full license details.
 
@@ -46,14 +46,14 @@ setup(
     description="The YAWAST Antecedent Web Application Security Toolkit",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
-    url="https://github.com/Numorian/yawast-ng",
+    url="https://github.com/adcaudill/yawast-ng",
     project_urls={
-        "Bug Reports": "https://github.com/Numorian/yawast-ng/issues",
-        "Source": "https://github.com/Numorian/yawast-ng",
-        "Changelog": "https://github.com/Numorian/yawast-ng/blob/master/CHANGELOG.md",
+        "Bug Reports": "https://github.com/adcaudill/yawast-ng/issues",
+        "Source": "https://github.com/adcaudill/yawast-ng",
+        "Changelog": "https://github.com/adcaudill/yawast-ng/blob/master/CHANGELOG.md",
     },
-    author="Numorian, Inc.",
-    author_email="contact@numorian.com",
+    author="Adam Caudill",
+    author_email="me@adamcaudill.com",
     license="MIT",
     packages=find_packages(exclude=["tests", "sample-plugin"]),
     entry_points={"console_scripts": ["yawast = yawast.__main__:main"]},

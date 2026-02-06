@@ -7,8 +7,8 @@ from yawast.commands import ssl as ssl_cmd
 
 def make_session(**kwargs):
     session = mock.Mock()
-    session.url = kwargs.get("url", "https://numorian.com")
-    session.domain = kwargs.get("domain", "numorian.com")
+    session.url = kwargs.get("url", "https://example.com")
+    session.domain = kwargs.get("domain", "example.com")
     session.url_parsed.scheme = kwargs.get("scheme", "https")
     session.url_parsed.port = kwargs.get("port", 443)
     session.args.internalssl = kwargs.get("internalssl", False)
@@ -164,6 +164,6 @@ def test_ssl_tdessessioncount(monkeypatch):
     ):
         ssl_cmd.start(session)
         error.assert_any_call(
-            "The --tdessessioncount option is currently disabled. See https://github.com/Numorian/yawast-ng/issues/11"
+            "The --tdessessioncount option is currently disabled. See https://github.com/adcaudill/yawast-ng/issues/11"
         )
         sweet32_scan.assert_called_once()

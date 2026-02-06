@@ -9,4 +9,4 @@ As part of the growth of YAWAST into a more complex, better-supported tool, YAWA
 
 This site will house a project blog with useful information on the project and what's going on, documentation on how to use YAWAST, and other various tidbits of useful knowledge.
 
-If you run into any issues, please let us know by opening an [issue](https://github.com/Numorian/yawast-ng/issues/new).
+If you run into any issues, please let us know by opening an [issue](https://github.com/adcaudill/yawast-ng/issues/new).

@@ -6,9 +6,10 @@ To retrieve the full list of contributors from source control, the following com
 
 ```git log --pretty="* %an <%ae>%n* %cn <%ce>" | sort | uniq```
 
-Copyright (c) 2013 - 2025 Numorian, Inc. and Contributors.
+Copyright (c) 2013 - 2026 Adam Caudill and Contributors.
+Copyright (c) 2025 Numorian, Inc. and Contributors.
 
-* Adam Caudill <a@cac.sh>
+* Adam Caudill <me@adamcaudill.com>
 * Brandon Wilson <brandonlw@gmail.com>
 * Nick Santamaria <nick@nicksantamaria.net>
 * Ryan Borden <ryan.borden@bsigroup.com>

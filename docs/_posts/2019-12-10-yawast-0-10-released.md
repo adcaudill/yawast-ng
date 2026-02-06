@@ -19,4 +19,4 @@ Today we are pleased to announce the immediate release of YAWAST v0.10.0 - this 
 
 ### Feedback & Support
 
-As always, if you discover any issues or have a feature request, please open an issue](https://github.com/Numorian/yawast-ng/issues/new) and provide as much information as possible.
+As always, if you discover any issues or have a feature request, please open an issue](https://github.com/adcaudill/yawast-ng/issues/new) and provide as much information as possible.

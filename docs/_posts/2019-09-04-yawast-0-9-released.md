@@ -20,4 +20,4 @@ The most important new feature is the addition of the `--header='name=value'` pa
 
 ### Feedback & Support
 
-As always, if you discover any issues or have a feature request, please open an issue](https://github.com/Numorian/yawast-ng/issues/new) and provide as much information as possible.
+As always, if you discover any issues or have a feature request, please open an issue](https://github.com/adcaudill/yawast-ng/issues/new) and provide as much information as possible.

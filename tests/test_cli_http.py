@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Numorian, Inc. and Contributors.
+# Copyright (c) 2013 - 2026. See LICENSE and CONTRIBUTORS.md for details.
 # Unit tests for yawast/scanner/cli/http.py
 from unittest import mock
 from urllib.parse import urlparse
@@ -75,7 +75,7 @@ def test_reset_calls_all():
 
 
 def test_file_search_basic(monkeypatch):
-    session = DummySession("http://numorian.com", "numorian.com")
+    session = DummySession("http://example.com", "example.com")
     monkeypatch.setattr("yawast.shared.output.norm", lambda *a, **k: None)
     monkeypatch.setattr("yawast.shared.output.empty", lambda: None)
     monkeypatch.setattr(
@@ -186,7 +186,7 @@ def test_file_search_basic(monkeypatch):
 
 
 def test_check_password_reset_user_prompt(monkeypatch):
-    session = DummySession("http://numorian.com", "numorian.com")
+    session = DummySession("http://example.com", "example.com")
     session.args.user = None
     monkeypatch.setattr("yawast.shared.utils.prompt", lambda msg: "user")
     monkeypatch.setattr(
@@ -200,7 +200,7 @@ def test_check_password_reset_user_prompt(monkeypatch):
 
 
 def test_check_password_reset_no_user(monkeypatch):
-    session = DummySession("http://numorian.com", "numorian.com")
+    session = DummySession("http://example.com", "example.com")
     session.args.user = None
     monkeypatch.setattr("yawast.shared.utils.prompt", lambda msg: None)
     result = http._check_password_reset(session)
@@ -208,7 +208,7 @@ def test_check_password_reset_no_user(monkeypatch):
 
 
 def test_check_password_reset_element_not_found(monkeypatch):
-    session = DummySession("http://numorian.com", "numorian.com")
+    session = DummySession("http://example.com", "example.com")
     session.args.user = "user"
 
     # Simulate PasswordResetElementNotFound with no element_name
@@ -228,7 +228,7 @@ def test_check_password_reset_element_not_found(monkeypatch):
 
 
 def test_check_password_reset_element_not_found_with_name(monkeypatch):
-    session = DummySession("http://numorian.com", "numorian.com")
+    session = DummySession("http://example.com", "example.com")
     session.args.user = "user"
     # Simulate PasswordResetElementNotFound with element_name
     monkeypatch.setattr(
@@ -242,7 +242,7 @@ def test_check_password_reset_element_not_found_with_name(monkeypatch):
 
 
 def test_scan_basic(monkeypatch):
-    session = DummySession("http://numorian.com", "numorian.com")
+    session = DummySession("http://example.com", "example.com")
     # Patch all dependencies used in scan
     monkeypatch.setattr("yawast.scanner.cli.http._file_search", lambda s, l: ["/file"])
     monkeypatch.setattr(
@@ -314,7 +314,7 @@ def test_scan_basic(monkeypatch):
 
 
 def test_scan_with_password_reset(monkeypatch):
-    session = DummySession("http://numorian.com", "numorian.com")
+    session = DummySession("http://example.com", "example.com")
     monkeypatch.setattr("yawast.scanner.cli.http._file_search", lambda s, l: ["/file"])
     monkeypatch.setattr(
         "yawast.scanner.cli.http._check_password_reset",
@@ -391,7 +391,7 @@ def test_scan_with_password_reset(monkeypatch):
     session.args.files = False
     session.args.dir = False
     session.args.user = "user"
-    session.args.pass_reset_page = "http://numorian.com/reset"
+    session.args.pass_reset_page = "http://example.com/reset"
 
     monkeypatch.setattr(
         "yawast.shared.network._requester.get",
@@ -413,7 +413,7 @@ def test_scan_with_password_reset(monkeypatch):
 
 
 def test_scan_error_handling(monkeypatch):
-    session = DummySession("http://numorian.com", "numorian.com")
+    session = DummySession("http://example.com", "example.com")
     # Patch _file_search to raise
     monkeypatch.setattr(
         "yawast.scanner.cli.http._file_search",
@@ -446,7 +446,7 @@ def test_scan_error_handling(monkeypatch):
 
 
 def test_scan_login_success(monkeypatch):
-    session = DummySession("http://numorian.com", "numorian.com")
+    session = DummySession("http://example.com", "example.com")
     session.args.user = "user"
     session.args.password = "pass"
     # Patch login and all output/network dependencies
@@ -559,7 +559,7 @@ def test_scan_login_success(monkeypatch):
 
 
 def test_scan_login_failure(monkeypatch):
-    session = DummySession("http://numorian.com", "numorian.com")
+    session = DummySession("http://example.com", "example.com")
     session.args.user = "user"
     session.args.password = "pass"
     monkeypatch.setattr("yawast.reporting.reporter.register_data", lambda *a, **k: None)
@@ -681,7 +681,7 @@ def test_scan_login_failure(monkeypatch):
 
 
 def test_scan_header_cookie_waf_hsts(monkeypatch):
-    session = DummySession("http://numorian.com", "numorian.com")
+    session = DummySession("http://example.com", "example.com")
     # Patch all output/network dependencies
     monkeypatch.setattr("yawast.reporting.reporter.register_data", lambda *a, **k: None)
     monkeypatch.setattr(
@@ -798,7 +798,7 @@ def test_scan_header_cookie_waf_hsts(monkeypatch):
 
 
 def test_scan_spider_error(monkeypatch):
-    session = DummySession("http://numorian.com", "numorian.com")
+    session = DummySession("http://example.com", "example.com")
     monkeypatch.setattr("yawast.reporting.reporter.register_data", lambda *a, **k: None)
     monkeypatch.setattr(
         "yawast.reporting.reporter.display_results", lambda *a, **k: None
@@ -913,7 +913,7 @@ def test_scan_spider_error(monkeypatch):
 
 
 def test_scan_supported_http_methods(monkeypatch):
-    session = DummySession("http://numorian.com", "numorian.com")
+    session = DummySession("http://example.com", "example.com")
     monkeypatch.setattr("yawast.reporting.reporter.register_data", lambda *a, **k: None)
     monkeypatch.setattr(
         "yawast.reporting.reporter.display_results", lambda *a, **k: None
@@ -1024,7 +1024,7 @@ def test_scan_supported_http_methods(monkeypatch):
 
 
 def test_scan_server_checks_and_plugins(monkeypatch):
-    session = DummySession("http://numorian.com", "numorian.com")
+    session = DummySession("http://example.com", "example.com")
     monkeypatch.setattr("yawast.reporting.reporter.register_data", lambda *a, **k: None)
     monkeypatch.setattr(
         "yawast.reporting.reporter.display_results", lambda *a, **k: None

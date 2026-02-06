@@ -1,4 +1,4 @@
-#  Copyright (c) 2013 - 2025 Numorian, Inc. and Contributors.
+#  Copyright (c) 2013 - 2026. See LICENSE and CONTRIBUTORS.md for details.
 #  This file is part of yawast-ng which is released under the MIT license.
 #  See the LICENSE file for full license details.
 
@@ -61,7 +61,7 @@ def scan(session: Session):
         except generic_login.LoginFormNotFound as error:
             output.warn(
                 "Unable to find a known login form. Please report this issue: "
-                "https://github.com/Numorian/yawast-ng/issues"
+                "https://github.com/adcaudill/yawast-ng/issues"
             )
         except Exception as error:
             output.debug_exception()
@@ -404,7 +404,7 @@ def _check_password_reset(session: Session, element_name: Optional[str] = None):
             )
             print(
                 "If this element seems to be common, please request that it be "
-                "added: https://github.com/Numorian/yawast-ng/issues"
+                "added: https://github.com/adcaudill/yawast-ng/issues"
             )
             name = utils.prompt("What is the user/email entry element name? ")
 

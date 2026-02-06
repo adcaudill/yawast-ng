@@ -8,7 +8,7 @@ from yawast.scanner.modules.http import spider
 
 class DummySession:
     def __init__(self):
-        self.url = "http://numorian.com"
+        self.url = "http://example.com"
         self.args = mock.Mock(php_page=None)
 
 
@@ -173,7 +173,7 @@ def test_get_links_file_ext_filter(monkeypatch):
     # Simulate network.http_get returns a response with text/html
     res = mock.Mock(
         status_code=200,
-        text="<html><a href='http://numorian.com/file.jpg'>img</a><a href='http://numorian.com/file.php'>php</a></html>",
+        text="<html><a href='http://example.com/file.jpg'>img</a><a href='http://example.com/file.php'>php</a></html>",
         headers={},
     )
     monkeypatch.setattr(spider.network, "http_get", lambda url, allow: res)
@@ -186,8 +186,8 @@ def test_get_links_file_ext_filter(monkeypatch):
         spider.BeautifulSoup,
         "find_all",
         lambda self, tag: [
-            mock.Mock(get=lambda k: "http://numorian.com/file.jpg", string="img"),
-            mock.Mock(get=lambda k: "http://numorian.com/file.php", string="php"),
+            mock.Mock(get=lambda k: "http://example.com/file.jpg", string="img"),
+            mock.Mock(get=lambda k: "http://example.com/file.php", string="php"),
         ],
     )
     monkeypatch.setattr(
@@ -195,8 +195,8 @@ def test_get_links_file_ext_filter(monkeypatch):
         "BeautifulSoup",
         lambda text, parser: mock.Mock(
             find_all=lambda tag: [
-                mock.Mock(get=lambda k: "http://numorian.com/file.jpg", string="img"),
-                mock.Mock(get=lambda k: "http://numorian.com/file.php", string="php"),
+                mock.Mock(get=lambda k: "http://example.com/file.jpg", string="img"),
+                mock.Mock(get=lambda k: "http://example.com/file.php", string="php"),
             ]
         ),
     )
@@ -251,7 +251,7 @@ def test_spider_task_exception(monkeypatch):
         "Manager",
         lambda: mock.Mock(Queue=lambda: mock.Mock(empty=lambda: True, get=lambda: [])),
     )
-    session.url = "http://numorian.com"
+    session.url = "http://example.com"
     # Should not raise, should call debug_exception
     spider.spider(session)
 
@@ -367,7 +367,7 @@ def test_spider_status_debug(monkeypatch):
         lambda: mock.Mock(Queue=lambda: mock.Mock(empty=lambda: True, get=lambda: [])),
     )
     monkeypatch.setattr(spider, "time", mock.Mock(sleep=lambda x: None))
-    session.url = "http://numorian.com"
+    session.url = "http://example.com"
     # Should not hang, should call debug for status
     spider.spider(session)
     assert debug.called
@@ -500,7 +500,7 @@ def test_spider_status_debug_multiple_tasks(monkeypatch):
         lambda: mock.Mock(Queue=lambda: mock.Mock(empty=lambda: True, get=lambda: [])),
     )
     monkeypatch.setattr(spider, "time", mock.Mock(sleep=lambda x: None))
-    session.url = "http://numorian.com"
+    session.url = "http://example.com"
     # Should not hang, should call debug for status and cover else branch
     spider.spider(session)
     assert debug.called
@@ -753,7 +753,7 @@ def test_get_links_sets_password_reset(monkeypatch):
     from yawast.scanner.session import Session
 
     args = argparse.Namespace(php_page=None, pass_reset_page=None)
-    session = Session(url="http://numorian.com", args=args)
+    session = Session(url="http://example.com", args=args)
 
     # Patch pool to call _get_links synchronously
     class SyncPool:
@@ -780,7 +780,7 @@ def test_get_links_sets_password_reset(monkeypatch):
     class FakeLink:
         def get(self, k):
             if k == "href":
-                return "http://numorian.com/reset-password"
+                return "http://example.com/reset-password"
             return None
 
         @property
@@ -794,10 +794,10 @@ def test_get_links_sets_password_reset(monkeypatch):
     monkeypatch.setattr(spider, "BeautifulSoup", lambda text, parser: FakeSoup())
     res = mock.Mock(
         status_code=200,
-        text="<html><a href='http://numorian.com/reset-password'>reset</a></html>",
+        text="<html><a href='http://example.com/reset-password'>reset</a></html>",
         headers={},
     )
     monkeypatch.setattr(spider.network, "http_get", lambda url, allow: res)
     queue = mock.Mock(put=lambda x: None)
     spider._get_links(session, session.url, [session.url], queue, pool)
-    assert session.args.pass_reset_page == "http://numorian.com/reset-password"
+    assert session.args.pass_reset_page == "http://example.com/reset-password"

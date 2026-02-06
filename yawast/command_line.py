@@ -1,4 +1,4 @@
-#  Copyright (c) 2013 - 2025 Numorian, Inc. and Contributors.
+#  Copyright (c) 2013 - 2026. See LICENSE and CONTRIBUTORS.md for details.
 #  This file is part of yawast-ng which is released under the MIT license.
 #  See the LICENSE file for full license details.
 
@@ -29,7 +29,7 @@ def build_parser():
 
     parser = argparse.ArgumentParser(prog="yawast")
     parser.description = "YAWAST ...where a pentest starts. A tool for web-based application security testing."
-    parser.epilog = "For more information, see https://numorian.github.io/yawast-ng/"
+    parser.epilog = "For more information, see https://adcaudill.github.io/yawast-ng/"
     parser.add_argument(
         "-v", "--version", action="version", version=f"{parser.prog} v{get_version()}"
     )

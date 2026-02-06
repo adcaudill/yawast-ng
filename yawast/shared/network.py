@@ -1,4 +1,4 @@
-#  Copyright (c) 2013 - 2025 Numorian, Inc. and Contributors.
+#  Copyright (c) 2013 - 2026. See LICENSE and CONTRIBUTORS.md for details.
 #  This file is part of yawast-ng which is released under the MIT license.
 #  See the LICENSE file for full license details.
 
@@ -552,7 +552,7 @@ def _get_404_handling(domain: str, url: str):
 
             # Use deterministic 12-character hex string based on target
             rnd = hashlib.sha256(target.encode()).hexdigest()[:12]
-            
+
             file_url = urljoin(target, f"{rnd}.html")
             path_url = urljoin(target, f"{rnd}/")
 

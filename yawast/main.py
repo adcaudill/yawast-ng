@@ -1,4 +1,4 @@
-#  Copyright (c) 2013 - 2025 Numorian, Inc. and Contributors.
+#  Copyright (c) 2013 - 2026. See LICENSE and CONTRIBUTORS.md for details.
 #  This file is part of yawast-ng which is released under the MIT license.
 #  See the LICENSE file for full license details.
 
@@ -123,8 +123,8 @@ def print_header():
     print(f"The YAWAST Antecedent Web Application Security Toolkit (v{get_version()})")
     print("                                   The Next Generation")
     print()
-    print(" Copyright (c) 2013 - 2025 Numorian, Inc. and Contributors")
-    print(" Support & Documentation: https://numorian.github.io/yawast-ng/")
+    print(" Copyright (c) 2013 - 2026 Adam Caudill and Contributors")
+    print(" Support & Documentation: https://adcaudill.github.io/yawast-ng/")
     print()
     print(
         f" Python {''.join(sys.version.splitlines())} ({platform.python_implementation()})"

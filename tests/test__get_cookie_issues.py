@@ -1,4 +1,4 @@
-#  Copyright (c) 2013 - 2025 Numorian, Inc. and Contributors.
+#  Copyright (c) 2013 - 2026. See LICENSE and CONTRIBUTORS.md for details.
 #  This file is part of yawast-ng which is released under the MIT license.
 #  See the LICENSE file for full license details.
 
@@ -15,7 +15,7 @@ class TestGetCookieIssues:
         http_basic.reset()
 
         with requests_mock.Mocker() as m:
-            url = "http://numorian.com"
+            url = "http://example.com"
             m.get(
                 url,
                 text="body",
@@ -34,7 +34,7 @@ class TestGetCookieIssues:
         http_basic.reset()
 
         with requests_mock.Mocker() as m:
-            url = "http://numorian.com"
+            url = "http://example.com"
             m.get(
                 url,
                 text="body",
@@ -54,7 +54,7 @@ class TestGetCookieIssues:
         http_basic.reset()
 
         with requests_mock.Mocker() as m:
-            url = "https://numorian.com"
+            url = "https://example.com"
             m.get(
                 url,
                 text="body",
@@ -77,7 +77,7 @@ class TestGetCookieIssues:
         http_basic.reset()
 
         with requests_mock.Mocker() as m:
-            url = "https://numorian.com"
+            url = "https://example.com"
             m.get(
                 url,
                 text="body",
@@ -96,7 +96,7 @@ class TestGetCookieIssues:
         http_basic.reset()
 
         with requests_mock.Mocker() as m:
-            url = "https://numorian.com"
+            url = "https://example.com"
             m.get(
                 url,
                 text="body",
@@ -116,7 +116,7 @@ class TestGetCookieIssues:
         http_basic.reset()
 
         with requests_mock.Mocker() as m:
-            url = "http://numorian.com"
+            url = "http://example.com"
             m.get(
                 url,
                 text="body",
@@ -134,7 +134,7 @@ class TestGetCookieIssues:
         http_basic.reset()
 
         with requests_mock.Mocker() as m:
-            url = "https://numorian.com"
+            url = "https://example.com"
             m.get(
                 url,
                 text="body",
@@ -152,7 +152,7 @@ class TestGetCookieIssues:
         http_basic.reset()
 
         with requests_mock.Mocker() as m:
-            url = "http://numorian.com"
+            url = "http://example.com"
             m.get(
                 url,
                 text="body",
@@ -172,7 +172,7 @@ class TestGetCookieIssues:
         http_basic.reset()
 
         with requests_mock.Mocker() as m:
-            url = "http://numorian.com"
+            url = "http://example.com"
             m.get(
                 url,
                 text="body",
@@ -192,7 +192,7 @@ class TestGetCookieIssues:
         http_basic.reset()
 
         with requests_mock.Mocker() as m:
-            url = "http://numorian.com"
+            url = "http://example.com"
             m.get(
                 url,
                 text="body",
@@ -212,7 +212,7 @@ class TestGetCookieIssues:
         http_basic.reset()
 
         with requests_mock.Mocker() as m:
-            url = "http://numorian.com"
+            url = "http://example.com"
             m.get(
                 url,
                 text="body",

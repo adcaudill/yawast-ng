@@ -1,4 +1,4 @@
-#  Copyright (c) 2013 - 2025 Numorian, Inc. and Contributors.
+#  Copyright (c) 2013 - 2026. See LICENSE and CONTRIBUTORS.md for details.
 #  This file is part of yawast-ng which is released under the MIT license.
 #  See the LICENSE file for full license details.
 
@@ -62,6 +62,6 @@ def start(session: Session):
 
         if session.args.tdessessioncount:
             output.error(
-                "The --tdessessioncount option is currently disabled. See https://github.com/Numorian/yawast-ng/issues/11"
+                "The --tdessessioncount option is currently disabled. See https://github.com/adcaudill/yawast-ng/issues/11"
             )
             ssl_sweet32.scan(session)

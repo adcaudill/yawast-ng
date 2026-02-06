@@ -44,7 +44,7 @@ class TestGenericLogin:
         ]
 
         result = generic_login.login_and_get_auth(
-            "http://numorian.com", "user", "pass", make_test_session()
+            "http://example.com", "user", "pass", make_test_session()
         )
 
         assert result["cookies"] == {"sessionid": "abc123"}
@@ -76,7 +76,7 @@ class TestGenericLogin:
 
         with pytest.raises(generic_login.LoginFormNotFound):
             generic_login.login_and_get_auth(
-                "http://numorian.com", "user", "pass", make_test_session()
+                "http://example.com", "user", "pass", make_test_session()
             )
         mock_driver.quit.assert_called_once()
 
@@ -111,7 +111,7 @@ class TestGenericLogin:
         ]
 
         result = generic_login.login_and_get_auth(
-            "http://numorian.com", "user", "pass", make_test_session()
+            "http://example.com", "user", "pass", make_test_session()
         )
 
         assert result["cookies"] == {}
@@ -152,7 +152,7 @@ class TestGenericLogin:
         ]
 
         result = generic_login.login_and_get_auth(
-            "http://numorian.com", "user", "pass", make_test_session()
+            "http://example.com", "user", "pass", make_test_session()
         )
 
         assert result["cookies"] == {}
@@ -242,7 +242,7 @@ def test_login_and_get_auth_success(monkeypatch):
     monkeypatch.setattr("time.sleep", lambda x: None)
     monkeypatch.setattr("yawast.shared.output.debug", lambda msg: None)
     result = generic_login.login_and_get_auth(
-        "http://numorian.com", "user", "pass", make_test_session()
+        "http://example.com", "user", "pass", make_test_session()
     )
     assert "cookies" in result and "header" in result and "error" in result
 
@@ -286,7 +286,7 @@ def test_login_and_get_auth_login_link(monkeypatch):
         "yawast.scanner.modules.http.generic_login._detect_login_error", lambda d: None
     )
     result = generic_login.login_and_get_auth(
-        "http://numorian.com", "user", "pass", make_test_session()
+        "http://example.com", "user", "pass", make_test_session()
     )
     assert "cookies" in result
     driver.quit.assert_called_once()
@@ -305,7 +305,7 @@ def test_login_and_get_auth_no_fields(monkeypatch):
     monkeypatch.setattr("yawast.shared.output.debug", lambda msg: None)
     with pytest.raises(generic_login.LoginFormNotFound):
         generic_login.login_and_get_auth(
-            "http://numorian.com", "user", "pass", make_test_session()
+            "http://example.com", "user", "pass", make_test_session()
         )
 
 

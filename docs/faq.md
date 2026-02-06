@@ -16,7 +16,7 @@ Absolutely. That's really what it's for. The goal of yawast-ng is to make profes
 
 *Can I integrate yawast-ng into a commercial product?*
 
-This is a complicated question. While yawast-ng itself is [licensed](https://github.com/Numorian/yawast-ng/blob/master/LICENSE) under the MIT license which is very permissive, yawast-ng also uses a number of third-party libraries which have various [OSI](https://opensource.org/) licenses. These licenses have different terms which may impact you, and may limit how you can integrate yawast-ng. Given the number of licenses involved, we do not take a position on your ability to integrate yawast-ng into a commercial product. If this is your intention, you will need to review all dependencies, and likely consult with an attorney to determine what you are and aren't able to do within the various licenses.
+This is a complicated question. While yawast-ng itself is [licensed](https://github.com/adcaudill/yawast-ng/blob/master/LICENSE) under the MIT license which is very permissive, yawast-ng also uses a number of third-party libraries which have various [OSI](https://opensource.org/) licenses. These licenses have different terms which may impact you, and may limit how you can integrate yawast-ng. Given the number of licenses involved, we do not take a position on your ability to integrate yawast-ng into a commercial product. If this is your intention, you will need to review all dependencies, and likely consult with an attorney to determine what you are and aren't able to do within the various licenses.
 
 ### What does the name mean?
 
@@ -36,4 +36,4 @@ Yes, though not anymore. Due to an increasingly complex chain of dependencies, a
 
 ### Does yawast-ng receive financial support?
 
-Yes; yawast-ng is directly supported by [Numorian](https://numorian.com), a security and AI consulting company.
+No.

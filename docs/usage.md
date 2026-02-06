@@ -66,7 +66,7 @@ For authenticated testing, yawast-ng allows you to specify a cookie to be passed
 
 `--cookie='SESSIONID=1234567890'`
 
-As of 0.13.0, yawast-ng also supports a `--user` and `--password` parameter, which is used to create a valid session for the application being scanned. For greatest compatibility, yawast-ng uses browser automation (via Chrome) to create a valid session, and then uses that session for the rest of the scan. I automated login fails, please open an [issue](https://github.com/Numorian/yawast-ng/issues) with details about the login form and the application being scanned.
+As of 0.13.0, yawast-ng also supports a `--user` and `--password` parameter, which is used to create a valid session for the application being scanned. For greatest compatibility, yawast-ng uses browser automation (via Chrome) to create a valid session, and then uses that session for the rest of the scan. I automated login fails, please open an [issue](https://github.com/adcaudill/yawast-ng/issues) with details about the login form and the application being scanned.
 
 ### About the Output
 

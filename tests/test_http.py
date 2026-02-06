@@ -1,4 +1,4 @@
-#  Copyright (c) 2013 - 2025 Numorian, Inc. and Contributors.
+#  Copyright (c) 2013 - 2026. See LICENSE and CONTRIBUTORS.md for details.
 #  This file is part of yawast-ng which is released under the MIT license.
 #  See the LICENSE file for full license details.
 import os
@@ -35,7 +35,7 @@ from yawast.shared import network, output
 
 class TestHttpBasic:
     def test_get_header_issues_no_sec_headers(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(url, text="body")
@@ -49,7 +49,7 @@ class TestHttpBasic:
         assert len(res) == 6
 
     def test_get_header_issues_none(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(
@@ -97,7 +97,7 @@ class TestHttpBasic:
         assert "link" not in dups
 
     def test_get_header_issues_powered_by(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(
@@ -124,7 +124,7 @@ class TestHttpBasic:
         assert "X-Powered-By Header Present" in res[0].message
 
     def test_get_header_issues_xss(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(
@@ -151,7 +151,7 @@ class TestHttpBasic:
         assert "X-XSS-Protection Is Deprecated" in res[0].message
 
     def test_get_header_issues_runtime(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(
@@ -178,7 +178,7 @@ class TestHttpBasic:
         assert "X-Runtime Header Present" in res[0].message
 
     def test_get_header_issues_backend(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(
@@ -205,7 +205,7 @@ class TestHttpBasic:
         assert "X-Backend-Server Header Present" in res[0].message
 
     def test_get_header_issues_via(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(
@@ -232,7 +232,7 @@ class TestHttpBasic:
         assert "Via Header Present" in res[0].message
 
     def test_get_header_issues_xfa(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(
@@ -258,7 +258,7 @@ class TestHttpBasic:
         assert "X-Frame-Options Header" in res[0].message
 
     def test_get_header_issues_acao(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(
@@ -285,7 +285,7 @@ class TestHttpBasic:
         assert "Access-Control-Allow-Origin: Unrestricted" in res[0].message
 
     def test_check_propfind_none_err(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.register_uri("PROPFIND", url, text="body", status_code=500)
@@ -296,7 +296,7 @@ class TestHttpBasic:
             assert "PROPFIND Enabled" not in r.message
 
     def test_check_propfind_none_ok(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.register_uri("PROPFIND", url, text="body", status_code=200)
@@ -307,7 +307,7 @@ class TestHttpBasic:
             assert "PROPFIND Enabled" not in r.message
 
     def test_check_propfind(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.register_uri(
@@ -323,7 +323,7 @@ class TestHttpBasic:
         assert any("PROPFIND Enabled" in r.message for r in res)
 
     def test_check_trace_none_err(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.register_uri("TRACE", url, text="body", status_code=500)
@@ -334,7 +334,7 @@ class TestHttpBasic:
             assert "HTTP TRACE Enabled" not in r.message
 
     def test_check_trace_none_ok(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.register_uri("TRACE", url, text="body", status_code=200)
@@ -345,7 +345,7 @@ class TestHttpBasic:
             assert "HTTP TRACE Enabled" not in r.message
 
     def test_check_trace(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.register_uri("TRACE", url, text="TRACE / HTTP/1.1", status_code=200)
@@ -355,7 +355,7 @@ class TestHttpBasic:
         assert any("HTTP TRACE Enabled" in r.message for r in res)
 
     def test_check_opts_none_err(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.register_uri("OPTIONS", url, status_code=500)
@@ -366,7 +366,7 @@ class TestHttpBasic:
             assert "HTTP Verbs (OPTIONS)" not in r.message
 
     def test_check_opts_none_ok(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.register_uri("OPTIONS", url, status_code=200)
@@ -377,7 +377,7 @@ class TestHttpBasic:
             assert "HTTP Verbs (OPTIONS)" not in r.message
 
     def test_check_opts_allow(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.register_uri("OPTIONS", url, status_code=200, headers={"Allow": "GET"})
@@ -387,7 +387,7 @@ class TestHttpBasic:
         assert any("Allow HTTP Verbs (OPTIONS)" in r.message for r in res)
 
     def test_check_opts_public(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.register_uri("OPTIONS", url, status_code=200, headers={"Public": "GET"})
@@ -397,7 +397,7 @@ class TestHttpBasic:
         assert any("Public HTTP Verbs (OPTIONS)" in r.message for r in res)
 
     def test_cache_headers_none(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(url, text="body", headers={})
@@ -411,7 +411,7 @@ class TestHttpBasic:
         assert any("Pragma: no-cache Not Found" in r.message for r in res)
 
     def test_cache_headers_expires_invalid(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(url, text="body", headers={"Expires": "1"})
@@ -423,7 +423,7 @@ class TestHttpBasic:
         assert not any("Expires Header Not Found" in r.message for r in res)
 
     def test_cache_headers_expires_future(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(
@@ -440,7 +440,7 @@ class TestHttpBasic:
         assert any("Expires Header - Future Dated" in r.message for r in res)
 
     def test_cache_headers_expires_past(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(
@@ -457,7 +457,7 @@ class TestHttpBasic:
         assert not any("Expires Header - Future Dated" in r.message for r in res)
 
     def test_cache_headers_pragma(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(url, text="body", headers={"Pragma": "no-cache"})
@@ -469,7 +469,7 @@ class TestHttpBasic:
         assert not any("Pragma: no-cache Not Found" in r.message for r in res)
 
     def test_cache_headers_cc_public(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(url, text="body", headers={"Cache-Control": "Public"})
@@ -484,7 +484,7 @@ class TestHttpBasic:
         assert any("Cache-Control: private Not Found" in r.message for r in res)
 
     def test_cache_headers_cc_private(self):
-        url = "http://numorian.com"
+        url = "http://example.com"
 
         with requests_mock.Mocker() as m:
             m.get(url, text="body", headers={"Cache-Control": "Private"})
@@ -517,7 +517,7 @@ class TestHttpBasic:
         assert any("External JavaScript File" in r.message for r in res)
 
     def test_rails_cve_2019_5418_none(self):
-        url = "http://numorian.com/"
+        url = "http://example.com/"
 
         with requests_mock.Mocker() as m:
             m.get(url, text="body")
@@ -528,7 +528,7 @@ class TestHttpBasic:
         assert not any("Rails CVE-2019-5418" in r.message for r in res)
 
     def test_rails_cve_2019_5418(self):
-        url = "http://numorian.com/"
+        url = "http://example.com/"
 
         with requests_mock.Mocker() as m:
             m.get(url, text="root:x:0:0:root:/root:/bin/bash")
@@ -539,7 +539,7 @@ class TestHttpBasic:
         assert any("Rails CVE-2019-5418" in r.message for r in res)
 
     def test_rails_cve_2019_5418_fp(self):
-        url = "http://numorian.com/"
+        url = "http://example.com/"
 
         with requests_mock.Mocker() as m:
             m.get(url, text="root: File")
@@ -550,29 +550,29 @@ class TestHttpBasic:
         assert not any("Rails CVE-2019-5418" in r.message for r in res)
 
     def test_python_check_banner(self):
-        res = python.check_banner("Python/3.0.3", "head_data", "http://numorian.com")
+        res = python.check_banner("Python/3.0.3", "head_data", "http://example.com")
 
         assert any("Python Version Exposed" in r.message for r in res)
 
     def test_nginx_check_banner_gen(self):
-        res = nginx.check_banner("nginx", "head_data", "http://numorian.com")
+        res = nginx.check_banner("nginx", "head_data", "http://example.com")
 
         assert any("Generic Nginx Server Banner Found" in r.message for r in res)
 
     def test_nginx_check_banner(self):
-        res = nginx.check_banner("nginx/1.0.0", "head_data", "http://numorian.com")
+        res = nginx.check_banner("nginx/1.0.0", "head_data", "http://example.com")
 
         assert any("Nginx Version Exposed" in r.message for r in res)
 
     def test_nginx_check_banner_outdated(self):
-        res = nginx.check_banner("nginx/1.0.0", "head_data", "http://numorian.com")
+        res = nginx.check_banner("nginx/1.0.0", "head_data", "http://example.com")
 
         assert any("Nginx Outdated" in r.message for r in res)
 
     def test_wp_path_disc_nix(self):
         network.init("", "", "")
         output.setup(False, False, False)
-        url = "http://numorian.com/"
+        url = "http://example.com/"
 
         with requests_mock.Mocker() as m:
             m.get(requests_mock.ANY, status_code=404)
@@ -592,7 +592,7 @@ class TestHttpBasic:
     def test_wp_path_disc_win(self):
         network.init("", "", "")
         output.setup(False, False, False)
-        url = "http://numorian.com/"
+        url = "http://example.com/"
 
         with requests_mock.Mocker() as m:
             m.get(requests_mock.ANY, status_code=404)
@@ -612,7 +612,7 @@ class TestHttpBasic:
     def test_wp_path_disc_none_err(self):
         network.init("", "", "")
         output.setup(False, False, False)
-        url = "http://numorian.com/"
+        url = "http://example.com/"
 
         with requests_mock.Mocker() as m:
             m.get(
@@ -628,7 +628,7 @@ class TestHttpBasic:
     def test_wp_path_disc_none(self):
         network.init("", "", "")
         output.setup(False, False, False)
-        url = "http://numorian.com/"
+        url = "http://example.com/"
 
         with requests_mock.Mocker() as m:
             m.get(requests_mock.ANY, text="hello world")
@@ -641,7 +641,7 @@ class TestHttpBasic:
     def test_php_find_info(self):
         network.init("", "", "")
         output.setup(False, False, False)
-        url = "http://numorian.com/"
+        url = "http://example.com/"
 
         with requests_mock.Mocker() as m:
             m.get(requests_mock.ANY, status_code=404)
@@ -656,7 +656,7 @@ class TestHttpBasic:
     def test_php_find_info_none(self):
         network.init("", "", "")
         output.setup(False, False, False)
-        url = "http://numorian.com/"
+        url = "http://example.com/"
 
         with requests_mock.Mocker() as m:
             m.get(requests_mock.ANY, status_code=404)
@@ -710,7 +710,7 @@ class TestHttpBasic:
 
     def test_wp_ident(self):
         network.init("", "", "")
-        url = "https://numorian.com/"
+        url = "https://example.com/"
 
         output.setup(False, False, False)
         with utils.capture_sys_output() as (stdout, stderr):
@@ -741,7 +741,7 @@ class TestHttpBasic:
 
     def test_wp_json_user_enum(self):
         network.init("", "", "")
-        url = "https://numorian.com/"
+        url = "https://example.com/"
 
         output.setup(False, False, False)
         with utils.capture_sys_output() as (stdout, stderr):
@@ -866,7 +866,7 @@ class TestHttpBasic:
             with utils.capture_sys_output() as (stdout, stderr):
                 network.init("ftp://127.0.0.1:1234", "", "")
 
-                _ = network.http_get("http://numorian.com")
+                _ = network.http_get("http://example.com")
         except Exception as error:
             assert error is None
 
@@ -883,7 +883,7 @@ class TestHttpBasic:
             with utils.capture_sys_output() as (stdout, stderr):
                 network.init("", "SESSION=123", "")
 
-                _ = network.http_get("http://numorian.com")
+                _ = network.http_get("http://example.com")
         except Exception as error:
             assert error is None
 
@@ -900,7 +900,7 @@ class TestHttpBasic:
             with utils.capture_sys_output() as (stdout, stderr):
                 network.init("", "SESSION=123;C=456", "")
 
-                _ = network.http_get("http://numorian.com")
+                _ = network.http_get("http://example.com")
         except Exception as error:
             assert error is None
 
@@ -917,7 +917,7 @@ class TestHttpBasic:
             with utils.capture_sys_output() as (stdout, stderr):
                 network.init("", "SESSION123", "")
 
-                _ = network.http_get("http://numorian.com")
+                _ = network.http_get("http://example.com")
         except Exception as error:
             assert error is None
 
@@ -934,7 +934,7 @@ class TestHttpBasic:
             with utils.capture_sys_output() as (stdout, stderr):
                 network.init("", "", "AUTH=123")
 
-                _ = network.http_get("http://numorian.com")
+                _ = network.http_get("http://example.com")
         except Exception as error:
             assert error is None
 
@@ -951,7 +951,7 @@ class TestHttpBasic:
             with utils.capture_sys_output() as (stdout, stderr):
                 network.init("", "", "AUTH: 123")
 
-                _ = network.http_get("http://numorian.com")
+                _ = network.http_get("http://example.com")
         except Exception as error:
             assert error is None
 
@@ -968,7 +968,7 @@ class TestHttpBasic:
             with utils.capture_sys_output() as (stdout, stderr):
                 network.init("", "", "AUTH123")
 
-                _ = network.http_get("http://numorian.com")
+                _ = network.http_get("http://example.com")
         except Exception as error:
             assert error is None
 
@@ -1243,7 +1243,7 @@ class TestHttpBasic:
             with requests_mock.Mocker() as m:
                 m.get(
                     requests_mock.ANY,
-                    text="<html><body><p><a href='http://numorian.com/'>insecure</a></p></body></html>",
+                    text="<html><body><p><a href='http://example.com/'>insecure</a></p></body></html>",
                     status_code=200,
                 )
                 m.head(requests_mock.ANY, status_code=200)
@@ -1650,11 +1650,11 @@ class TestHttpBasic:
         reset()
         # HTTPS, all flags present
         res = DummyRes()
-        out = get_cookie_issues(res, "https://numorian.com")
+        out = get_cookie_issues(res, "https://example.com")
         assert isinstance(out, list)
         # HTTP, missing Secure, SameSite, HttpOnly
         cookies = ["b=2"]
-        out2 = _get_cookie_issues(cookies, "http://numorian.com", res)
+        out2 = _get_cookie_issues(cookies, "http://example.com", res)
         assert isinstance(out2, list)
 
     def test_decode_big_ip_cookie(self, monkeypatch):
@@ -1684,14 +1684,12 @@ class TestHttpBasic:
 
         # Mock session
         session = SimpleNamespace()
-        session.url = "https://numorian.com"
+        session.url = "https://example.com"
         session.url_parsed = SimpleNamespace(scheme="https")
         session.supports_http = False
         # Patch utils.get_port, get_domain
         monkeypatch.setattr("yawast.shared.utils.get_port", lambda url: 443)
-        monkeypatch.setattr(
-            "yawast.shared.utils.get_domain", lambda url: "numorian.com"
-        )
+        monkeypatch.setattr("yawast.shared.utils.get_domain", lambda url: "example.com")
 
         # Patch socket and ssl
         class DummyConn:
@@ -1761,7 +1759,7 @@ class TestHttpBasic:
             lambda *a, **k: (_ for _ in ()).throw(Exception("fail")),
         )
         monkeypatch.setattr("yawast.shared.output.debug_exception", lambda: None)
-        out = http_basic.get_header_issues(DummyRes(), "", "http://numorian.com")
+        out = http_basic.get_header_issues(DummyRes(), "", "http://example.com")
         assert out == []
 
     def test_check_http_methods_early_return(self, monkeypatch):
@@ -1778,7 +1776,7 @@ class TestHttpBasic:
             "yawast.scanner.modules.http.response_scanner.check_response",
             lambda url, res: ["checked"],
         )
-        methods, results = http_basic.check_http_methods("http://numorian.com")
+        methods, results = http_basic.check_http_methods("http://example.com")
         assert methods == []
         assert results == ["checked"]
 
@@ -1802,9 +1800,7 @@ class TestHttpBasic:
             "yawast.scanner.modules.http.response_scanner.check_response",
             lambda url, res: [],
         )
-        methods, _ = http_basic.check_http_methods(
-            "http://numorian.com", str(file_path)
-        )
+        methods, _ = http_basic.check_http_methods("http://example.com", str(file_path))
         assert "GET" in methods and "POST" not in methods
 
     def test_check_hsts_preload_exception(self, monkeypatch):
@@ -1815,7 +1811,7 @@ class TestHttpBasic:
             lambda url: (_ for _ in ()).throw(Exception("fail")),
         )
         monkeypatch.setattr("yawast.shared.output.debug_exception", lambda: None)
-        out = http_basic.check_hsts_preload("http://numorian.com")
+        out = http_basic.check_hsts_preload("http://example.com")
         assert out == []
 
     def test_check_local_ip_disclosure_http_branch(self, monkeypatch):
@@ -1824,14 +1820,12 @@ class TestHttpBasic:
         from yawast.scanner.modules.http import http_basic
 
         session = SimpleNamespace()
-        session.url = "http://numorian.com"
+        session.url = "http://example.com"
         session.url_parsed = SimpleNamespace(scheme="http")
         session.supports_http = True
-        session.get_http_url = lambda: "http://numorian.com"
+        session.get_http_url = lambda: "http://example.com"
         monkeypatch.setattr("yawast.shared.utils.get_port", lambda url: 80)
-        monkeypatch.setattr(
-            "yawast.shared.utils.get_domain", lambda url: "numorian.com"
-        )
+        monkeypatch.setattr("yawast.shared.utils.get_domain", lambda url: "example.com")
 
         class DummyConn:
             def connect(self, addr):
@@ -1882,13 +1876,11 @@ class TestHttpBasic:
         from yawast.scanner.modules.http import http_basic
 
         session = SimpleNamespace()
-        session.url = "https://numorian.com"
+        session.url = "https://example.com"
         session.url_parsed = SimpleNamespace(scheme="https")
         session.supports_http = False
         monkeypatch.setattr("yawast.shared.utils.get_port", lambda url: 443)
-        monkeypatch.setattr(
-            "yawast.shared.utils.get_domain", lambda url: "numorian.com"
-        )
+        monkeypatch.setattr("yawast.shared.utils.get_domain", lambda url: "example.com")
 
         class DummyConn:
             def sendall(self, data):
@@ -1958,7 +1950,7 @@ class TestHttpBasic:
             "urllib.parse.urlparse",
             lambda url: (_ for _ in ()).throw(Exception("fail")),
         )
-        out = http_basic._get_cookie_issues(["a=1"], "http://numorian.com", None)
+        out = http_basic._get_cookie_issues(["a=1"], "http://example.com", None)
         assert out == []
         monkeypatch.setattr("urllib.parse.urlparse", orig_urlparse)
 
@@ -2009,7 +2001,7 @@ class TestHttpBasic:
             "yawast.scanner.modules.http.servers.python.check_banner",
             lambda *a, **k: [],
         )
-        out = http_basic.get_header_issues(DummyRes(), "", "http://numorian.com")
+        out = http_basic.get_header_issues(DummyRes(), "", "http://example.com")
         assert any("dup" in r.message for r in out)
 
     def test_decode_big_ip_cookie_not_private(self, monkeypatch):
@@ -2037,17 +2029,15 @@ class TestHttpBasic:
         from yawast.scanner.modules.http import http_basic
 
         session = SimpleNamespace()
-        session.url = "https://numorian.com"
+        session.url = "https://example.com"
         session.url_parsed = SimpleNamespace(scheme="https")
         session.supports_http = True
-        session.get_http_url = lambda: "http://numorian.com"
+        session.get_http_url = lambda: "http://example.com"
         monkeypatch.setattr(
             "yawast.shared.utils.get_port",
             lambda url: 443 if url.startswith("https") else 80,
         )
-        monkeypatch.setattr(
-            "yawast.shared.utils.get_domain", lambda url: "numorian.com"
-        )
+        monkeypatch.setattr("yawast.shared.utils.get_domain", lambda url: "example.com")
 
         class DummyConn:
             def sendall(self, data):
@@ -2130,7 +2120,7 @@ class TestHttpBasic:
         monkeypatch.setattr("yawast.shared.utils.is_private_ip", lambda ip: True)
         # Should not add a result if pattern doesn't match
         out = http_basic._get_cookie_issues(
-            ["BIGipServerWEB=notamatch"], "https://numorian.com", type("R", (), {})()
+            ["BIGipServerWEB=notamatch"], "https://example.com", type("R", (), {})()
         )
         assert out is not None
 
@@ -2168,7 +2158,7 @@ class TestHttpBasic:
         )
         monkeypatch.setattr("yawast.shared.output.debug_exception", lambda: None)
         with pytest.raises(Exception):
-            http_basic.check_propfind("http://numorian.com")
+            http_basic.check_propfind("http://example.com")
 
     def test_check_trace_exception(self, monkeypatch):
         import pytest
@@ -2181,7 +2171,7 @@ class TestHttpBasic:
         )
         monkeypatch.setattr("yawast.shared.output.debug_exception", lambda: None)
         with pytest.raises(Exception):
-            http_basic.check_trace("http://numorian.com")
+            http_basic.check_trace("http://example.com")
 
     def test_check_options_exception(self, monkeypatch):
         import pytest
@@ -2194,7 +2184,7 @@ class TestHttpBasic:
         )
         monkeypatch.setattr("yawast.shared.output.debug_exception", lambda: None)
         with pytest.raises(Exception):
-            http_basic.check_options("http://numorian.com")
+            http_basic.check_options("http://example.com")
 
     def test_check_http_methods_file_exception(self, monkeypatch):
         import pytest
@@ -2220,6 +2210,6 @@ class TestHttpBasic:
         )
         with pytest.raises(Exception):
             http_basic.check_http_methods(
-                "http://numorian.com", path="/tmp/doesnotexist.txt"
+                "http://example.com", path="/tmp/doesnotexist.txt"
             )
         monkeypatch.setattr("builtins.open", orig_open)
