@@ -22,11 +22,13 @@ The simplest options to install are:
 
 As a Python package: `pip3 install yawast-ng` (yawast-ng Python 3.9+)
 
+It's strongly recommended that you review the [installation](https://yawast.adamcaudill.com/installation/) page to ensure you have the proper dependencies.
+
 #### Docker
 
 `docker pull adamcaudill/yawast-ng`
 
-It's strongly recommended that you review the [installation](https://yawast.adamcaudill.com/installation/) page to ensure you have the proper dependencies.
+The Docker image includes all dependencies, including those required for TLS/SSL scanning and browser automation. As such, it is the recommended option for most users.
 
 ## Documentation
 
