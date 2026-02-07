@@ -131,7 +131,12 @@ def update_default_layout(layout_path: str, count_k: int):
         r"(<p>Used by penetration testers and security auditors worldwide, and downloaded over\s*<b>)([\d,\.kM\+]+)(</b>\s*times\.</p>)"
     )
     new_value = f"{count_k}k"
-    new_content, n = pattern.subn(r"\1" + new_value + r"\3", content, count=1)
+
+    # Use a callable replacement to avoid ambiguous backreference parsing (e.g. "\1123")
+    def _repl(m: re.Match) -> str:
+        return m.group(1) + new_value + m.group(3)
+
+    new_content, n = pattern.subn(_repl, content, count=1)
     if n == 0:
         print("No matching paragraph found to update in default layout.")
     else:
