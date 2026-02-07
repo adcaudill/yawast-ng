@@ -93,7 +93,7 @@ def get_download_count_k():
     return total // 1000
 
 
-def update_readme_downloads(readme_path: str):
+def update_readme_downloads(readme_path: str, count_k: int):
     readme = Path(readme_path)
     content = readme.read_text(encoding="utf-8")
 
@@ -101,8 +101,9 @@ def update_readme_downloads(readme_path: str):
     badge_pattern = re.compile(
         r"!\[Download Count\]\(https://img\.shields\.io/badge/downloads-[^)]*\)"
     )
-    new_count = get_download_count_k()
-    new_badge = f"![Download Count](https://img.shields.io/badge/downloads-{new_count}k%2B-blue)"
+    new_badge = (
+        f"![Download Count](https://img.shields.io/badge/downloads-{count_k}k%2B-blue)"
+    )
 
     # Replace the badge
     new_content, n = badge_pattern.subn(new_badge, content, count=1)
@@ -110,11 +111,38 @@ def update_readme_downloads(readme_path: str):
         print("No download badge found to update.")
     else:
         readme.write_text(new_content, encoding="utf-8")
-        print(f"Updated download badge to {new_count}k+ downloads.")
+        print(f"Updated download badge to {count_k}k+ downloads.")
+
+
+def update_default_layout(layout_path: str, count_k: int):
+    """
+    Update the downloads count in docs/_layouts/default.html by replacing the number
+    inside the <b>...</b> tags in the specific paragraph.
+    """
+    layout = Path(layout_path)
+    if not layout.exists():
+        print(f"Layout file not found: {layout_path}")
+        return
+
+    content = layout.read_text(encoding="utf-8")
+
+    # Look for the specific paragraph and replace the value inside the <b>...</b>
+    pattern = re.compile(
+        r"(<p>Used by penetration testers and security auditors worldwide, and downloaded over\s*<b>)([\d,\.kM\+]+)(</b>\s*times\.</p>)"
+    )
+    new_value = f"{count_k}k"
+    new_content, n = pattern.subn(r"\1" + new_value + r"\3", content, count=1)
+    if n == 0:
+        print("No matching paragraph found to update in default layout.")
+    else:
+        layout.write_text(new_content, encoding="utf-8")
+        print(f"Updated default layout download count to {new_value}.")
 
 
 def main():
-    update_readme_downloads("README.md")
+    count_k = get_download_count_k()
+    update_readme_downloads("README.md", count_k)
+    update_default_layout("docs/_layouts/default.html", count_k)
 
 
 if __name__ == "__main__":

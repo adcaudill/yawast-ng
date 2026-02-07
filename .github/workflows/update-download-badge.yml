@@ -31,15 +31,15 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add README.md
-          git diff --cached --quiet || git commit -m 'chore: update download badge in README.md'
+          git add README.md docs/_layouts/default.html
+          git diff --cached --quiet || git commit -m 'chore: update download counts in README.md and docs/_layouts/default.html'
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:
-          commit-message: 'chore: update download badge in README.md'
-          title: 'chore: update download badge in README.md'
-          body: 'Automated update of the download badge in README.md.'
+          commit-message: 'chore: update download counts in README.md and docs/_layouts/default.html'
+          title: 'chore: update download counts in README.md and docs/_layouts/default.html'
+          body: 'Automated update of the download counts in README.md and docs/_layouts/default.html.'
           branch: 'update/download-badge'
           delete-branch: true
           base: 'main'
