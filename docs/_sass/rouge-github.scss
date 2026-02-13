@@ -1,209 +1,256 @@
-.highlight table td { padding: 5px; }
-.highlight table pre { margin: 0; }
+/* Syntax color custom properties (defaults mirror GitHub Rouge theme) */
+:root {
+  --rg-bg: #f8f8f8;
+  --rg-comment: #999988;
+  --rg-cp: #999999;
+  --rg-err: #a61717;
+  --rg-err-bg: #e3d2d2;
+  --rg-black: #000000;
+  --rg-gd-bg: #ffdddd;
+  --rg-gr: #aa0000;
+  --rg-gh: #999999;
+  --rg-gi-bg: #ddffdd;
+  --rg-go: #888888;
+  --rg-gp: #555555;
+  --rg-gu: #aaaaaa;
+  --rg-kt: #445588;
+  --rg-m: #009999;
+  --rg-s: #dd1144;
+  --rg-sr: #009926;
+  --rg-ss: #990073;
+  --rg-na: #008080;
+  --rg-nb: #0086B3;
+  --rg-nd: #3c5d5d;
+  --rg-ni: #800080;
+  --rg-ne: #990000;
+  --rg-nn: #555555;
+  --rg-nt: #000080;
+  --rg-w: #bbbbbb;
+}
+
+/* Prefer dark-mode token colors: tie some values to site code vars when available */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --rg-bg: var(--color-code-bg, #0e0f10);
+    --rg-comment: #9aa0a6;
+    --rg-cp: #9aa0a6;
+    --rg-err: #ff6b6b;
+    --rg-err-bg: #4b2626;
+    --rg-black: #ffffff;
+    --rg-gd-bg: #3b1a1a;
+    --rg-gr: #ff6666;
+    --rg-gh: #bfbfbf;
+    --rg-gi-bg: #163b16;
+    --rg-go: #9a9a9a;
+    --rg-gp: #cccccc;
+    --rg-gu: #bfbfbf;
+    --rg-kt: #9fb3d4;
+    --rg-m: #56d4d4;
+    --rg-s: #ff9b9b;
+    --rg-sr: #66ff99;
+    --rg-ss: #d7a3e6;
+    --rg-na: #76bfbf;
+    --rg-nb: #65bfff;
+    --rg-nd: #86b0b0;
+    --rg-ni: #d7a3e6;
+    --rg-ne: #ff6666;
+    --rg-nn: #cccccc;
+    --rg-nt: #9fb3ff;
+    --rg-w: #777777;
+  }
+}
+
+.highlight table td {
+  padding: 5px;
+}
+
+.highlight table pre {
+  margin: 0;
+}
+
 .highlight .cm {
-  color: #999988;
+  color: var(--rg-comment);
   font-style: italic;
 }
+
 .highlight .cp {
-  color: #999999;
+  color: var(--rg-cp);
   font-weight: bold;
 }
+
 .highlight .c1 {
-  color: #999988;
+  color: var(--rg-comment);
   font-style: italic;
 }
+
 .highlight .cs {
-  color: #999999;
+  color: var(--rg-cp);
   font-weight: bold;
   font-style: italic;
 }
-.highlight .c, .highlight .cd {
-  color: #999988;
+
+.highlight .c,
+.highlight .cd {
+  color: var(--rg-comment);
   font-style: italic;
 }
+
 .highlight .err {
-  color: #a61717;
-  background-color: #e3d2d2;
+  color: var(--rg-err);
+  background-color: var(--rg-err-bg);
 }
+
 .highlight .gd {
-  color: #000000;
-  background-color: #ffdddd;
+  color: var(--rg-black);
+  background-color: var(--rg-gd-bg);
 }
+
 .highlight .ge {
-  color: #000000;
+  color: var(--rg-black);
   font-style: italic;
 }
+
 .highlight .gr {
-  color: #aa0000;
+  color: var(--rg-gr);
 }
+
 .highlight .gh {
-  color: #999999;
+  color: var(--rg-gh);
 }
+
 .highlight .gi {
-  color: #000000;
-  background-color: #ddffdd;
+  color: var(--rg-black);
+  background-color: var(--rg-gi-bg);
 }
+
 .highlight .go {
-  color: #888888;
+  color: var(--rg-go);
 }
+
 .highlight .gp {
-  color: #555555;
+  color: var(--rg-gp);
 }
+
 .highlight .gs {
   font-weight: bold;
 }
+
 .highlight .gu {
-  color: #aaaaaa;
+  color: var(--rg-gu);
 }
+
 .highlight .gt {
-  color: #aa0000;
+  color: var(--rg-gr);
 }
-.highlight .kc {
-  color: #000000;
+
+.highlight .kc,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .k,
+.highlight .kv {
+  color: var(--rg-black);
   font-weight: bold;
 }
-.highlight .kd {
-  color: #000000;
-  font-weight: bold;
-}
-.highlight .kn {
-  color: #000000;
-  font-weight: bold;
-}
-.highlight .kp {
-  color: #000000;
-  font-weight: bold;
-}
-.highlight .kr {
-  color: #000000;
-  font-weight: bold;
-}
-.highlight .kt {
-  color: #445588;
-  font-weight: bold;
-}
-.highlight .k, .highlight .kv {
-  color: #000000;
-  font-weight: bold;
-}
-.highlight .mf {
-  color: #009999;
-}
-.highlight .mh {
-  color: #009999;
-}
-.highlight .il {
-  color: #009999;
-}
-.highlight .mi {
-  color: #009999;
-}
-.highlight .mo {
-  color: #009999;
-}
-.highlight .m, .highlight .mb, .highlight .mx {
-  color: #009999;
-}
-.highlight .sb {
-  color: #d14;
-}
-.highlight .sc {
-  color: #d14;
-}
-.highlight .sd {
-  color: #d14;
-}
-.highlight .s2 {
-  color: #d14;
-}
-.highlight .se {
-  color: #d14;
-}
-.highlight .sh {
-  color: #d14;
-}
-.highlight .si {
-  color: #d14;
-}
-.highlight .sx {
-  color: #d14;
-}
-.highlight .sr {
-  color: #009926;
-}
-.highlight .s1 {
-  color: #d14;
-}
-.highlight .ss {
-  color: #990073;
-}
-.highlight .s {
-  color: #d14;
-}
-.highlight .na {
-  color: #008080;
-}
-.highlight .bp {
-  color: #999999;
-}
-.highlight .nb {
-  color: #0086B3;
-}
+
+.highlight .kt,
 .highlight .nc {
-  color: #445588;
+  color: var(--rg-kt);
+}
+
+.highlight .kt,
+.highlight .nc {
   font-weight: bold;
 }
-.highlight .no {
-  color: #008080;
+
+.highlight .mf,
+.highlight .mh,
+.highlight .il,
+.highlight .mi,
+.highlight .mo,
+.highlight .m,
+.highlight .mb,
+.highlight .mx {
+  color: var(--rg-m);
 }
-.highlight .nd {
-  color: #3c5d5d;
-  font-weight: bold;
+
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .s2,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .s1,
+.highlight .s {
+  color: var(--rg-s);
 }
-.highlight .ni {
-  color: #800080;
+
+.highlight .sr {
+  color: var(--rg-sr);
 }
-.highlight .ne {
-  color: #990000;
-  font-weight: bold;
+
+.highlight .ss {
+  color: var(--rg-ss);
 }
-.highlight .nf {
-  color: #990000;
-  font-weight: bold;
+
+.highlight .sr {
+  color: var(--rg-sr);
 }
-.highlight .nl {
-  color: #990000;
-  font-weight: bold;
-}
-.highlight .nn {
-  color: #555555;
-}
-.highlight .nt {
-  color: #000080;
-}
-.highlight .vc {
-  color: #008080;
-}
-.highlight .vg {
-  color: #008080;
-}
-.highlight .vi {
-  color: #008080;
-}
+
+.highlight .na,
+.highlight .no,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi,
 .highlight .nv {
-  color: #008080;
+  color: var(--rg-na);
 }
-.highlight .ow {
-  color: #000000;
+
+.highlight .bp {
+  color: var(--rg-cp);
+}
+
+.highlight .nb {
+  color: var(--rg-nb);
+}
+
+.highlight .nd {
+  color: var(--rg-nd);
   font-weight: bold;
 }
+
+.highlight .ni {
+  color: var(--rg-ni);
+}
+
+.highlight .ne,
+.highlight .nf,
+.highlight .nl {
+  color: var(--rg-ne);
+  font-weight: bold;
+}
+
+.highlight .nn {
+  color: var(--rg-nn);
+}
+
+.highlight .nt {
+  color: var(--rg-nt);
+}
+
+.highlight .ow,
 .highlight .o {
-  color: #000000;
+  color: var(--rg-black);
   font-weight: bold;
 }
+
 .highlight .w {
-  color: #bbbbbb;
+  color: var(--rg-w);
 }
+
 .highlight {
-  background-color: #f8f8f8;
+  background-color: var(--rg-bg);
 }
