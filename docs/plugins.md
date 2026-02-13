@@ -24,7 +24,7 @@ To create your own plugin:
 
 1. **Copy the Sample Plugin**
 
-Use the [sample-plugin](/sample-plugin) directory as a starting point. It contains a minimal, working example.
+Use the [sample-plugin](https://github.com/adcaudill/yawast-ng/tree/main/sample-plugin) directory as a starting point. It contains a minimal, working example.
 
 2. **Inherit from a Plugin Base Class**
 
