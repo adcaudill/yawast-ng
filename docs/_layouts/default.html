@@ -14,41 +14,63 @@
 </head>
 
 <body>
-  <div class="wrapper">
-    <header>
-      <h1><a href='{{ "/" | absolute_url }}'><img src="{{site.logo | relative_url}}" alt="YAWAST" width="270px" /></a>
-      </h1>
-
-      <p>{{ site.description | default: site.github.project_tagline }}</p>
-
-      <p>Used by penetration testers and security auditors worldwide, and downloaded over <b>143k</b> times.</p>
-
-      <ul>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href='{{ "/" | absolute_url }}' class="logo">
+        <img src="{{site.logo | relative_url}}" alt="YAWAST" class="logo-img" />
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu">
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/installation/">Installation</a></li>
-        <li><a href="/usage/">Usage &amp; Parameters</a></li>
-        <li><a href="/checks/">Checks Performed</a></li>
-        <li><a href="/tls/">Scanning TLS / SSL</a></li>
+        <li><a href="/usage/">Usage</a></li>
+        <li><a href="/checks/">Checks</a></li>
+        <li><a href="/tls/">TLS/SSL</a></li>
         <li><a href="/plugins/">Plugins</a></li>
         <li><a href="/about/">About</a></li>
         <li><a href="/faq/">FAQs</a></li>
+        {% if site.github.is_project_page %}
+        <li><a href="{{ site.github.repository_url }}" class="github-link">GitHub</a></li>
+        {% endif %}
       </ul>
+    </div>
+  </nav>
 
-      {% if site.github.is_project_page %}
-      <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{
-            site.github.repository_nwo }}</small></a></p>
-      {% endif %}
-    </header>
-    <section>
-
+  <main class="main-content">
+    <section class="content">
       {{ content }}
-
     </section>
-    <footer>
-      <p><small>&copy; 2026 <a href="https://adamcaudill.com">Adam Caudill</a> &amp; Contributors. See <a
-            href="https://github.com/adcaudill/yawast-ng/blob/main/LICENSE">license</a> for details.</small></p>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>{{ site.description | default: site.github.project_tagline }}</p>
+
+        <p>Used by penetration testers and security auditors worldwide, and downloaded over <b>143k</b> times.</p>
+
+        <hr>
+
+        <p>&copy; 2026 <a href="https://adamcaudill.com">Adam Caudill</a> &amp; Contributors. See <a
+            href="https://github.com/adcaudill/yawast-ng/blob/main/LICENSE">license</a> for details.</p>
+      </div>
     </footer>
-  </div>
+  </main>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (menuToggle) {
+      menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        this.classList.toggle('active');
+      });
+    }
+  </script>
   <script src='{{ "/assets/js/scale.fix.js" | relative_url }}'></script>
 </body>
 
