@@ -1,31 +1,57 @@
 @import "fonts";
 @import "rouge-github";
 
-// Color variables
-$color-bg: #fff;
-$color-text: #727272;
-$color-heading: #222;
-$color-heading-2: #393939;
-$color-heading-sub: #494949;
-$color-link: #267CB9;
-$color-link-hover: #069;
-$color-muted: #777;
-$color-border: #e5e5e5;
-$color-code-text: #333;
-$color-code-bg: #f8f8f8;
-$color-dt: #444;
-$color-panel-bg: #f4f4f4;
-$color-panel-border: #e0e0e0;
-$color-downloads-text: #676767;
-$color-downloads-hover: #675C5C;
-$color-active-bg: #f0f0f0;
+
+/* Color custom properties (light mode defaults) */
+:root {
+  --color-bg: #fff;
+  --color-text: #727272;
+  --color-heading: #222;
+  --color-heading-2: #393939;
+  --color-heading-sub: #494949;
+  --color-link: #267CB9;
+  --color-link-hover: #069;
+  --color-muted: #777;
+  --color-border: #e5e5e5;
+  --color-code-text: #333;
+  --color-code-bg: #f8f8f8;
+  --color-dt: #444;
+  --color-panel-bg: #f4f4f4;
+  --color-panel-border: #e0e0e0;
+  --color-downloads-text: #676767;
+  --color-downloads-hover: #675C5C;
+  --color-active-bg: #f0f0f0;
+}
+
+/* Dark mode: override CSS custom properties at the root so components automatically adapt */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0f1113;
+    --color-text: #d1d5db;
+    --color-heading: #ffffff;
+    --color-heading-2: #e6e6e6;
+    --color-heading-sub: #dcdcdc;
+    --color-link: #66a6ff;
+    --color-link-hover: #99cfff;
+    --color-muted: #9a9a9a;
+    --color-border: #2b2b2b;
+    --color-code-text: #e6e6e6;
+    --color-code-bg: #0e0f10;
+    --color-dt: #e0e0e0;
+    --color-panel-bg: #141516;
+    --color-panel-border: #2a2a2a;
+    --color-downloads-text: #cfcfcf;
+    --color-downloads-hover: #d0bfbf;
+    --color-active-bg: #1a1a1a;
+  }
+}
 
 
 body {
-  background-color: $color-bg;
+  background-color: var(--color-bg);
   padding: 50px;
   font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: $color-text;
+  color: var(--color-text);
   font-weight: 400;
 }
 
@@ -35,7 +61,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: $color-heading;
+  color: var(--color-heading);
   margin: 0 0 20px;
 }
 
@@ -59,36 +85,36 @@ h1 {
 }
 
 h2 {
-  color: $color-heading-2;
+  color: var(--color-heading-2);
 }
 
 h3,
 h4,
 h5,
 h6 {
-  color: $color-heading-sub;
+  color: var(--color-heading-sub);
 }
 
 a {
-  color: $color-link;
+  color: var(--color-link);
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: $color-link-hover;
+  color: var(--color-link-hover);
   font-weight: bold;
 }
 
 a small {
   font-size: 11px;
-  color: $color-muted;
+  color: var(--color-muted);
   margin-top: -0.3em;
   display: block;
 }
 
 a:hover small {
-  color: $color-muted;
+  color: var(--color-muted);
 }
 
 .wrapper {
@@ -97,7 +123,7 @@ a:hover small {
 }
 
 blockquote {
-  border-left: 1px solid $color-border;
+  border-left: 1px solid var(--color-border);
   margin: 0;
   padding: 0 0 0 20px;
   font-style: italic;
@@ -106,14 +132,14 @@ blockquote {
 code,
 pre {
   font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
-  color: $color-code-text;
+  color: var(--color-code-text);
 }
 
 pre {
   padding: 8px 15px;
-  background: $color-code-bg;
+  background: var(--color-code-bg);
   border-radius: 5px;
-  border: 1px solid $color-border;
+  border: 1px solid var(--color-border);
   overflow-x: auto;
 }
 
@@ -126,16 +152,16 @@ th,
 td {
   text-align: left;
   padding: 5px 10px;
-  border-bottom: 1px solid $color-border;
+  border-bottom: 1px solid var(--color-border);
 }
 
 dt {
-  color: $color-dt;
+  color: var(--color-dt);
   font-weight: 700;
 }
 
 th {
-  color: $color-dt;
+  color: var(--color-dt);
 }
 
 img {
@@ -152,16 +178,16 @@ ul.downloads {
   list-style: none;
   height: 40px;
   padding: 0;
-  background: $color-panel-bg;
+  background: var(--color-panel-bg);
   border-radius: 5px;
-  border: 1px solid $color-panel-border;
+  border: 1px solid var(--color-panel-border);
   width: 270px;
 }
 
 .downloads li {
   width: 89px;
   float: left;
-  border-right: 1px solid $color-panel-border;
+  border-right: 1px solid var(--color-panel-border);
   height: 40px;
 }
 
@@ -176,7 +202,7 @@ ul.downloads {
 .downloads a {
   line-height: 1;
   font-size: 11px;
-  color: $color-downloads-text;
+  color: var(--color-downloads-text);
   display: block;
   text-align: center;
   padding-top: 6px;
@@ -185,16 +211,16 @@ ul.downloads {
 
 .downloads a:hover,
 .downloads a:focus {
-  color: $color-downloads-hover;
+  color: var(--color-downloads-hover);
   font-weight: bold;
 }
 
 .downloads ul a:active {
-  background-color: $color-active-bg;
+  background-color: var(--color-active-bg);
 }
 
 strong {
-  color: $color-heading;
+  color: var(--color-heading);
   font-weight: 700;
 }
 
@@ -206,7 +232,7 @@ strong {
 .downloads a strong {
   font-size: 14px;
   display: block;
-  color: $color-heading;
+  color: var(--color-heading);
 }
 
 section {
@@ -221,7 +247,7 @@ small {
 
 hr {
   border: 0;
-  background: $color-border;
+  background: var(--color-border);
   height: 1px;
   margin: 0 0 20px;
 }
@@ -239,6 +265,8 @@ screen and (max-width: 960px) {
     margin: 0;
   }
 
+
+
   header,
   section,
   footer {
@@ -252,7 +280,7 @@ screen and (max-width: 960px) {
   }
 
   section {
-    border: 1px solid $color-border;
+    border: 1px solid var(--color-border);
     border-width: 1px 0;
     padding: 20px 0;
     margin: 0 0 20px;
@@ -310,6 +338,6 @@ screen and (max-width: 480px) {
   body {
     padding: 0.4in;
     font-size: 12pt;
-    color: $color-dt;
+    color: var(--color-dt);
   }
 }
