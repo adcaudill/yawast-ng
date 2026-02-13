@@ -29,8 +29,8 @@ That being said, this new version includes a number of improvements and quite a 
 Command line parameters are still the same, most of the language is still the same – in general, this is a better YAWAST, but doesn’t break your expectations.
 
 Useful links:
-* [Installation information](https://yawast.adamcaudill.com/installation/)
-* [Sample output](https://yawast.adamcaudill.com/sample/)
-* [List of checks performed](https://yawast.adamcaudill.com/checks/)
+* [Installation information](/installation/)
+* [Sample output](/sample/)
+* [List of checks performed](/checks/)
 
 If you have any issues, please open an [issue](https://github.com/adcaudill/yawast-ng/issues) on Github (with any sensitive information redacted of course).

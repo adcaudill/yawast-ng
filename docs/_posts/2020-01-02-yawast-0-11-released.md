@@ -22,4 +22,4 @@ This version also includes a breaking change to the JSON file output; this chang
 
 ### Feedback & Support
 
-As always, if you discover any issues or have a feature request, please open an issue](https://github.com/adcaudill/yawast-ng/issues/new) and provide as much information as possible.
+As always, if you discover any issues or have a feature request, please [open an issue](https://github.com/adcaudill/yawast-ng/issues/new) and provide as much information as possible.

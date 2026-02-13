@@ -9,7 +9,7 @@ YAWAST is back! Or more specifically, yawast-ng has arrived. After a years-long 
 
 This project was created as a way to make penetration tests faster and more efficient, especially that first day of testing. Enabling testers to gain as much information as possible, as fast as possible. Why start at a walk, when you can go straight to a running start?
 
-With a large number of [checks performed](https://yawast.adamcaudill.com/checks/), yawast-ng provides both actionable findings and useful insights into the target and its security posture. This provides the most efficient start possible.
+With a large number of [checks performed](/checks/), yawast-ng provides both actionable findings and useful insights into the target and its security posture. This provides the most efficient start possible.
 
 ## Why the new name?
 
@@ -18,10 +18,6 @@ With a large number of [checks performed](https://yawast.adamcaudill.com/checks/
  As such, yawast-ng has a new name, including on [PyPi](https://pypi.org/project/yawast-ng/) and [Docker](https://hub.docker.com/r/adamcaudill/yawast-ng).
  
  Due to the importance of stable output, the one thing that we will commit to not introducing any breaking changes to the JSON output (via the `--output` parameter).
- 
-## Why Now?
-
-Numorian, a security and AI consulting company, has been generous enough to support the renewed development efforts, both to improve their own services and as a way of giving back to the community. Numorian and I both see the value of this project, both in the value it offers today, and the promise it holds for the future.
  
 ## Available Now
  
