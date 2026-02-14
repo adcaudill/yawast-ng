@@ -2,9 +2,11 @@
 #  This file is part of yawast-ng which is released under the MIT license.
 #  See the LICENSE file for full license details.
 
+import json
 from typing import Dict, Union
 
 from packaging import version
+import pkg_resources
 
 from yawast.shared import network, output
 
@@ -44,8 +46,23 @@ def get_latest_version(
 def _get_version_data() -> None:
     global _versions
     data: Union[Dict[str, Dict[str, Dict[str, str]]], None] = None
+
+    # load the local version of the data - this is the local fallback in case the remote data cannot be loaded
+    file_path = pkg_resources.resource_filename(
+        "yawast", "resources/current_versions.json"
+    )
+
+    try:
+        with open(file_path) as json_file:
+            data = json.load(json_file)
+    except Exception as error:
+        output.debug(f"Failed to load local version data: {error}")
+        output.debug_exception()
+
     data_url = "https://raw.githubusercontent.com/adcaudill/current_versions/main/current_versions.json"
 
+    # try to load the remote version of the data - this is the preferred source, 
+    # as it can be updated independently of YAWAST releases
     try:
         data, _ = network.http_json(data_url)
     except Exception as error:

@@ -1,0 +1,46 @@
+{
+	"_copyright": "Copyright 2026 Adam Caudill <me@adamcaudill.com>",
+	"_license": "MIT",
+	"_info": "https://github.com/adcaudill/current_versions",
+	"software": {
+		"apache_httpd": {
+			"latest": "2.4.66"
+		},
+		"php": {
+			"latest": "8.5.3",
+			"8.4": "8.4.18",
+			"8.3": "8.3.30",
+			"8.2": "8.2.30",
+			"8.5": "8.5.3"
+		},
+		"iis": {
+			"latest": "10.0",
+			"7.0": "7.0",
+			"7.5": "7.5",
+			"8.0": "8.0",
+			"8.5": "8.5",
+			"10.0": "10.0"
+		},
+		"aspnet_mvc": {
+			"latest": "5.2",
+			"5.2": "5.2"
+		},
+		"aspnet": {
+			"latest": "4.0.30319",
+			"4.0": "4.0.30319"
+		},
+		"nginx": {
+			"latest": "1.29.5"
+		},
+		"apache_tomcat": {
+			"latest": "11.0.18",
+			"11.0": "11.0.18",
+			"10.1": "10.1.52",
+			"10.0": "10.1.52",
+			"9.0": "9.0.115"
+		},
+		"wordpress": {
+			"latest": "6.9.1"
+		}
+	}
+}

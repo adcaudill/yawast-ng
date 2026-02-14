@@ -1,0 +1,45 @@
+name: Update Current Versions
+
+on:
+  schedule:
+    - cron: '0 4 * * 0'  # At 04:00 UTC every Sunday
+  workflow_dispatch:
+
+jobs:
+  update-current-versions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run update_current_versions.sh
+        run: |
+          chmod +x ./update_current_versions.sh || true
+          bash ./update_current_versions.sh
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add yawast/resources/current_versions.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected."
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.git-check.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: "chore: update current_versions.json (automated)"
+          title: "chore: update current_versions.json (automated)"
+          body: "Automated update of current_versions.json from external current_versions repository."
+          branch: update/current-versions-automated
+          delete-branch: true
