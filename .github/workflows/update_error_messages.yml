@@ -1,0 +1,45 @@
+name: Update Error Messages
+
+on:
+  schedule:
+    - cron: '0 4 * * 0'  # At 04:00 UTC every Sunday
+  workflow_dispatch:
+
+jobs:
+  update-error-messages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run update_error_messages.sh
+        run: |
+          chmod +x ./update_error_messages.sh || true
+          bash ./update_error_messages.sh
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add yawast/resources/match-rules.tab
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected."
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.git-check.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: "chore: update match-rules.tab (automated)"
+          title: "chore: update match-rules.tab (automated)"
+          body: "Automated update of match-rules.tab from burp-suite-error-message-checks repository."
+          branch: update/error-messages-automated
+          delete-branch: true

@@ -5,6 +5,7 @@
 import re
 from typing import List, Union, cast
 
+import pkg_resources
 from requests import Response
 
 from yawast.reporting.enums import Vulnerabilities
@@ -92,14 +93,37 @@ def reset():
 
 def _get_data() -> None:
     global _data
+    local_data: List[_MatchRule] = []
+    remote_data: List[_MatchRule] = []
+
+    # load the local version of the data - this is the local fallback in case the remote data cannot be loaded
+    file_path = pkg_resources.resource_filename(
+        "yawast", "resources/match-rules.tab"
+    )
+
+    try:
+        with open(file_path) as local_file:
+            for line in local_file:
+                local_data.append(_MatchRule(line))
+    except Exception as error:
+        output.debug(f"Failed to load local version data: {error}")
+        output.debug_exception()
+
     data_url = "https://raw.githubusercontent.com/augustd/burp-suite-error-message-checks/master/src/main/resources/burp/match-rules.tab"
 
+    # try to load the remote version of the data - this is the preferred source, 
+    # as it can be updated independently of YAWAST releases
     try:
         raw = network.http_get(data_url).text
 
         for line in raw.splitlines():
-            _data.append(_MatchRule(line))
+            remote_data.append(_MatchRule(line))
 
     except Exception as error:
         output.debug(f"Failed to get version data: {error}")
         output.debug_exception()
+
+    if len(remote_data) > 0:
+        _data = remote_data
+    else:
+        _data = local_data
