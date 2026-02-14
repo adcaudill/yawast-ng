@@ -5,6 +5,7 @@
 import re
 from typing import List, Union, cast
 
+import pkg_resources
 from requests import Response
 
 from yawast.reporting.enums import Vulnerabilities
@@ -15,7 +16,12 @@ from yawast.shared import network, output
 
 class _MatchRule:
     def __init__(self, data: str):
-        fields = data.split("\t")
+        # split and strip each field so trailing newlines/whitespace don't leak
+        fields = [f.strip() for f in data.split("\t")]
+
+        # ensure we have enough fields to avoid index errors
+        while len(fields) < 5:
+            fields.append("")
 
         # clean up regex, to eliminate issues from using Java-flavored regex
         pattern = fields[0].replace("}+", "}").replace("++", "+")
@@ -92,14 +98,47 @@ def reset():
 
 def _get_data() -> None:
     global _data
+    local_data: List[_MatchRule] = []
+    remote_data: List[_MatchRule] = []
+
+    # load the local version of the data - this is the local fallback in case the remote data cannot be loaded
+    file_path = pkg_resources.resource_filename("yawast", "resources/match-rules.tab")
+
+    try:
+        with open(file_path) as local_file:
+            for line in local_file:
+                line = line.strip()
+                if not line:
+                    continue
+
+                local_data.append(_MatchRule(line))
+    except Exception as error:
+        output.debug(f"Failed to load local error matching data: {error}")
+        output.debug_exception()
+
     data_url = "https://raw.githubusercontent.com/augustd/burp-suite-error-message-checks/master/src/main/resources/burp/match-rules.tab"
 
+    # try to load the remote version of the data - this is the preferred source,
+    # as it can be updated independently of YAWAST releases
     try:
         raw = network.http_get(data_url).text
 
         for line in raw.splitlines():
-            _data.append(_MatchRule(line))
+            line = line.strip()
+            if not line:
+                continue
+
+            remote_data.append(_MatchRule(line))
 
     except Exception as error:
-        output.debug(f"Failed to get version data: {error}")
+        output.debug(f"Failed to get remote error matching data: {error}")
         output.debug_exception()
+
+        # if we fail to load the remote data, we'll fall back to the local data,
+        # which may be outdated but is better than nothing
+        remote_data = []
+
+    if len(remote_data) > 0:
+        _data = remote_data
+    else:
+        _data = local_data
