@@ -21,6 +21,7 @@
 * Bug: Fix an issue with saving TLS details in JSON output when using `--internalssl`.
 * Bug: Fix an issue where some relative links were not being followed during the spidering process.
 * Bug: Fix an issue with CT Log data processing.
+* Bug: Fix version checks and error message detection failing when used in an environment with no internet access.
 
 ## 0.12.1 - 2025-04-04
 
