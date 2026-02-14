@@ -43,6 +43,13 @@ Details about yawast-ng and how to use it can be found below:
 * [FAQ](https://yawast.adamcaudill.com/faq/)
 * [Change Log](https://github.com/adcaudill/yawast-ng/blob/master/CHANGELOG.md)
 
+## Related Projects
+
+There are a few related projects that may be of interest, which are developed as part of the yawast-ng project:
+
+* [Current Versions](https://github.com/adcaudill/current_versions) - A list of current versions of popular software, which can be used to check for outdated software during testing.
+* [Xenon](https://github.com/adcaudill/xenon) - Testing environment for web application security testing tools, allowing you to easily test tools like yawast-ng against simulated vulnerabilities.
+
 ## Recent Blog Posts
 
 <ul class="posts">
