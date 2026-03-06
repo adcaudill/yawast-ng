@@ -1196,11 +1196,11 @@
         },
         "linkify-it-py": {
             "hashes": [
-                "sha256:68cda27e162e9215c17d786649d1da0021a451bdc436ef9e0fa0ba5234b9b048",
-                "sha256:6bcbc417b0ac14323382aef5c5192c0075bf8a9d6b41820a2b66371eac6b6d79"
+                "sha256:0d252c1594ecba2ecedc444053db5d3a9b7ec1b0dd929c8f1d74dce89f86c05e",
+                "sha256:43360231720999c10e9328dc3691160e27a718e280673d444c38d7d3aaa3b98b"
             ],
-            "markers": "python_version >= '3.7'",
-            "version": "==2.0.3"
+            "markers": "python_version >= '3.10'",
+            "version": "==2.1.0"
         },
         "markdown-it-py": {
             "extras": [
@@ -1452,11 +1452,11 @@
         },
         "platformdirs": {
             "hashes": [
-                "sha256:9170634f126f8efdae22fb58ae8a0eaa86f38365bc57897a6c4f781d1f5875bd",
-                "sha256:9a33809944b9db043ad67ca0db94b14bf452cc6aeaac46a88ea55b26e2e9d291"
+                "sha256:1ec356301b7dc906d83f371c8f487070e99d3ccf9e501686456394622a01a934",
+                "sha256:68a9a4619a666ea6439f2ff250c12a853cd1cbd5158d258bd824a7df6be2f868"
             ],
             "markers": "python_version >= '3.10'",
-            "version": "==4.9.2"
+            "version": "==4.9.4"
         },
         "pluggy": {
             "hashes": [
@@ -1559,12 +1559,12 @@
         },
         "textual": {
             "hashes": [
-                "sha256:8908f4ebe93a6b4f77ca7262197784a52162bc88b05f4ecf50ac93a92d49bb8f",
-                "sha256:ce48f83a3d686c0fac0e80bf9136e1f8851c653aa6a4502e43293a151df18809"
+                "sha256:4ceadbe0e8a30eb80f9995000f4d031f711420a31b02da38f3482957b7c50ce4",
+                "sha256:7b342f3ee9a5f2f1bd42d7b598cae00ff1275da68536769510db4b7fe8cabf5d"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.9' and python_version < '4.0'",
-            "version": "==8.0.0"
+            "version": "==8.0.2"
         },
         "typing-extensions": {
             "hashes": [
@@ -1576,11 +1576,11 @@
         },
         "uc-micro-py": {
             "hashes": [
-                "sha256:d321b92cff673ec58027c04015fcaa8bb1e005478643ff4a500882eaab88c48a",
-                "sha256:db1dffff340817673d7b466ec86114a9dc0e9d4d9b5ba229d9d60e5c12600cd5"
+                "sha256:3603a3859af53e5a39bc7677713c78ea6589ff188d70f4fee165db88e22b242c",
+                "sha256:c53691e495c8db60e16ffc4861a35469b0ba0821fe409a8a7a0a71864d33a811"
             ],
-            "markers": "python_version >= '3.7'",
-            "version": "==1.0.3"
+            "markers": "python_version >= '3.10'",
+            "version": "==2.0.0"
         },
         "wheel": {
             "hashes": [
