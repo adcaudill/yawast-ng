@@ -1,5 +1,5 @@
 ## yawast-ng
-![unit-tests](https://github.com/adcaudill/yawast-ng/workflows/unit-tests/badge.svg) [![PyPI version](https://img.shields.io/pypi/v/yawast-ng.svg)](https://pypi.org/project/yawast-ng/) [![Python version](https://img.shields.io/pypi/pyversions/yawast-ng.svg)](https://pypi.org/project/yawast-ng/) [![Docker Download](https://img.shields.io/badge/Docker-pull-blue)](https://hub.docker.com/r/adamcaudill/yawast-ng) ![Download Count](https://img.shields.io/badge/downloads-144k%2B-blue)
+![unit-tests](https://github.com/adcaudill/yawast-ng/workflows/unit-tests/badge.svg) [![PyPI version](https://img.shields.io/pypi/v/yawast-ng.svg)](https://pypi.org/project/yawast-ng/) [![Python version](https://img.shields.io/pypi/pyversions/yawast-ng.svg)](https://pypi.org/project/yawast-ng/) [![Docker Download](https://img.shields.io/badge/Docker-pull-blue)](https://hub.docker.com/r/adamcaudill/yawast-ng) ![Download Count](https://img.shields.io/badge/downloads-151k%2B-blue)
 
 
 ![YAWAST](https://github.com/adcaudill/yawast-ng/raw/main/yawast_logo_v1.svg?sanitize=true)
