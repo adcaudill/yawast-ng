@@ -1198,11 +1198,12 @@
         },
         "linkify-it-py": {
             "hashes": [
-                "sha256:68cda27e162e9215c17d786649d1da0021a451bdc436ef9e0fa0ba5234b9b048",
-                "sha256:6bcbc417b0ac14323382aef5c5192c0075bf8a9d6b41820a2b66371eac6b6d79"
+                "sha256:0d252c1594ecba2ecedc444053db5d3a9b7ec1b0dd929c8f1d74dce89f86c05e",
+                "sha256:43360231720999c10e9328dc3691160e27a718e280673d444c38d7d3aaa3b98b"
             ],
-            "markers": "python_version >= '3.7'",
-            "version": "==2.0.3"
+            "index": "pypi",
+            "markers": "python_version >= '3.10'",
+            "version": "==2.1.0"
         },
         "markdown-it-py": {
             "extras": [
@@ -1581,7 +1582,6 @@
                 "sha256:3603a3859af53e5a39bc7677713c78ea6589ff188d70f4fee165db88e22b242c",
                 "sha256:c53691e495c8db60e16ffc4861a35469b0ba0821fe409a8a7a0a71864d33a811"
             ],
-            "index": "pypi",
             "markers": "python_version >= '3.10'",
             "version": "==2.0.0"
         },
