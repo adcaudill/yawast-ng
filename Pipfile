@@ -7,7 +7,7 @@ verify_ssl = true
 mypy = ">=1.15.0,<2.0.0"
 coverage = "*"
 wheel = "*"
-black = ">=25.0,<27.0.0"
+black = ">=26.5.1,<27.0.0"
 memray = "*"
 pytest = "*"
 pytest-cov = "*"
